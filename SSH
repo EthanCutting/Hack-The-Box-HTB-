@@ -1,4 +1,4 @@
-# 1️⃣ Install SSH Server
+#1️⃣ Install SSH Server
 sudo apt update
 sudo apt install openssh-server -y
 # 2️⃣ Start SSH
