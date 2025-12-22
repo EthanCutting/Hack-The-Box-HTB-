@@ -12,27 +12,135 @@ sudo adduser adminuser
 # 5️⃣ Check SSH Logs
 sudo tail -f /var/log/auth.log
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 # 🧠 Phase 3: ANALYZE LOGS WITH PYTHON
+#!/usr/bin/env python3
 import re
+import csv
+import sys
 
-failed = {}
-ip_pattern = r"\b\d{1,3}(\.\d{1,3}){3}\b"
+LOG_FILE = "ssh_lab_logs.txt"
+ALERT_THRESHOLD = 5
 
-with open("ssh_lab_logs.txt") as f:
-    for line in f:
-        if "Failed password" in line:
-            ip = re.search(ip_pattern, line)
-            if ip:
-                ip = ip.group()
-                failed[ip] = failed.get(ip, 0) + 1
+# IP like 192.168.1.10
+IP_PATTERN = re.compile(r"\b\d{1,3}(?:\.\d{1,3}){3}\b")
 
-for ip, count in failed.items():
-    if count > 5:
-        print(f"ALERT: {ip} -> {count} failed SSH logins")
+# Handles both:
+# "Failed password for admin from ..."
+# "Failed password for invalid user admin from ..."
+USER_PATTERN = re.compile(r"Failed password for (?:invalid user )?([a-zA-Z0-9._-]+)")
+
+def load_lines(path: str) -> list[str]:
+    try:
+        with open(path, "r", encoding="utf-8", errors="replace") as f:
+            return f.readlines()
+    except FileNotFoundError:
+        print(f"[!] Log file not found: {path}")
+        print("[!] Put ssh_lab_logs.txt in the same folder as this script, or edit LOG_FILE.")
+        sys.exit(1)
+
+def parse_failed_logins(lines: list[str]) -> dict:
+    failed = {}  # ip -> {"count": int, "users": set()}
+    for line in lines:
+        if "Failed password" not in line:
+            continue
+
+        ip_match = IP_PATTERN.search(line)
+        if not ip_match:
+            continue
+        ip = ip_match.group(0)
+
+        user_match = USER_PATTERN.search(line)
+        user = user_match.group(1) if user_match else "UNKNOWN"
+
+        if ip not in failed:
+            failed[ip] = {"count": 0, "users": set()}
+
+        failed[ip]["count"] += 1
+        failed[ip]["users"].add(user)
+
+    return failed
+
+def classify_attack(users: set[str]) -> str:
+    # Simple heuristic:
+    # - 1-2 users targeted: brute force
+    # - many users targeted: password spray
+    return "Brute force" if len(users) <= 2 else "Password spray"
+
+def main():
+    lines = load_lines(LOG_FILE)
+    failed = parse_failed_logins(lines)
+
+    if not failed:
+        print("[i] No 'Failed password' events found in the log.")
+        sys.exit(0)
+
+    # Sort by highest failures
+    sorted_items = sorted(failed.items(), key=lambda x: x[1]["count"], reverse=True)
+
+    print("\n=== SSH Failed Login Summary (sorted) ===")
+    for ip, data in sorted_items:
+        users_sorted = ", ".join(sorted(data["users"]))
+        attack_type = classify_attack(data["users"])
+        print(f"{ip} -> {data['count']} failures | Users: {users_sorted} | Type: {attack_type}")
+
+    print(f"\n=== Alerts (threshold > {ALERT_THRESHOLD}) ===")
+    alerts_found = False
+    for ip, data in sorted_items:
+        if data["count"] > ALERT_THRESHOLD:
+            users_sorted = ", ".join(sorted(data["users"]))
+            attack_type = classify_attack(data["users"])
+            print(f"ALERT ({attack_type}): {ip} -> {data['count']} failures | Users targeted: {users_sorted}")
+            alerts_found = True
+
+    if not alerts_found:
+        print("No alerts triggered (try lowering ALERT_THRESHOLD).")
+
+    # Save CSV report
+    out_csv = "ssh_alerts.csv"
+    with open(out_csv, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["ip", "failures", "unique_users", "users", "attack_type"])
+        for ip, data in sorted_items:
+            users_sorted = sorted(data["users"])
+            writer.writerow([
+                ip,
+                data["count"],
+                len(users_sorted),
+                ";".join(users_sorted),
+                classify_attack(data["users"]),
+            ])
+
+    print(f"\n[i] Saved CSV report: {out_csv}\n")
+
+if __name__ == "__main__":
+    main()
+
+# output 
+┌──(kali㉿kali)-[~]
+└─$ python3 scirptU.py     
+
+=== SSH Failed Login Summary (sorted) ===
+192.168.74.134 -> 7 failures | Users: admin, user1, user2 | Type: Password spray
+
+=== Alerts (threshold > 5) ===
+ALERT (Password spray): 192.168.74.134 -> 7 failures | Users targeted: admin, user1, user2
+
+[i] Saved CSV report: ssh_alerts.csv
 
 
-# 
+#🧠 Bonus (Optional but Good Practice)
+chmod +x ssh_detector.py
+./ssh_detector.py
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+# sending target machine 
 scp /tmp/auth.log kali@192.168.74.134:/home/kali/ssh_lab_logs.txt
+# getting from attacker machine 
+scp ethan@192.168.74.133:/var/log/auth.log ~/ssh_lab_logs.txt
 
 
