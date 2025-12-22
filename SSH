@@ -1,4 +1,38 @@
-# Setup
+# 1️⃣ Install SSH Server
 sudo apt update
 sudo apt install openssh-server -y
+# 2️⃣ Start SSH
+sudo systemctl start ssh
+sudo systemctl enable ssh
+# 3️⃣ Verify
+sudo systemctl status ssh
+# 4️⃣ Create Test Users
+sudo adduser testuser
+sudo adduser adminuser
+# 5️⃣ Check SSH Logs
+sudo tail -f /var/log/auth.log
+
+
+# 🧠 Phase 3: ANALYZE LOGS WITH PYTHON
+import re
+
+failed = {}
+ip_pattern = r"\b\d{1,3}(\.\d{1,3}){3}\b"
+
+with open("ssh_lab_logs.txt") as f:
+    for line in f:
+        if "Failed password" in line:
+            ip = re.search(ip_pattern, line)
+            if ip:
+                ip = ip.group()
+                failed[ip] = failed.get(ip, 0) + 1
+
+for ip, count in failed.items():
+    if count > 5:
+        print(f"ALERT: {ip} -> {count} failed SSH logins")
+
+
+# 
+scp /tmp/auth.log kali@192.168.74.134:/home/kali/ssh_lab_logs.txt
+
 
