@@ -1,4 +1,4 @@
-## PhishNet
+## PhishNet - Very Easy
 An accounting team receives an urgent payment request from a known vendor. The email appears legitimate but contains a suspicious link and a .zip attachment hiding malware. Your task is to analyze the email headers, and uncover the attacker's scheme.
 
 # 🧠 What PhishNet is actually testing
@@ -11,4 +11,35 @@ You ARE meant to:
   - Identify spoofing
   - Trace sender infrastructure
   - Extract URLs & attachments safely
+
+
+# Task 1 - What is the originating IP address of the sender?
+
+# Task 2 - Which mail server relayed this email before reaching the victim?
+
+# Task 3 - What is the sender's email address?
+
+# Task 4 - What is the 'Reply-To' email address specified in the email?
+
+
+# Task 5 - What is the SPF (Sender Policy Framework) result for this email?
+
+
+# Task 6 - What is the domain used in the phishing URL inside the email?
+
+
+# Task 7 - What is the fake company name used in the email?
+
+
+# Task 8 - What is the name of the attachment included in the email?
+
+
+# Task 9 - What is the SHA-256 hash of the attachment?
+
+
+# Task 10 - What is the filename of the malicious file contained within the ZIP attachment?
+
+
+# Task 11 - Which MITRE ATT&CK techniques are associated with this attack?
+
 
