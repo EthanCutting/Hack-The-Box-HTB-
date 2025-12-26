@@ -1,0 +1,30 @@
+#
+
+#What is the source IP address of the attacker involved in this Attack?
+ip.addr == 192.168.170.128
+
+answer: 192.168.170.128
+
+# How many open ports did the attacker discover on the victim's system?
+┌──(.venv)─(bobby㉿bobby)-[~/Desktop/Shelock/Packet Puzzle]
+└─$ tshark -r NetworkTraffic.pcap \
+  -Y 'ip.src==192.168.170.130 && ip.dst==192.168.170.128 && tcp.flags.syn==1 && tcp.flags.ack==1' \
+  -T fields -e tcp.srcport \
+| sort -n | uniq
+
+22
+80
+135
+139
+443
+445
+3389
+5357
+                                                                                                                                                                                                                       
+┌──(.venv)─(bobby㉿bobby)-[~/Desktop/Shelock/Packet Puzzle]
+└─$ tshark -r NetworkTraffic.pcap \
+  -Y 'ip.src==192.168.170.130 && ip.dst==192.168.170.128 && tcp.flags.syn==1 && tcp.flags.ack==1' \
+  -T fields -e tcp.srcport \
+| sort -n | uniq | wc -l
+
+8
