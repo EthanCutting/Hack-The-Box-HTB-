@@ -1,0 +1,163 @@
+# HookFlare - Sherlock HTB
+
+-----------------------------------------------------------------------------------------------------------
+# Task 1 -
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads]
+└─$ cp HookFlare.dd HookFlare_fixed.dd
+
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads]
+└─$ sudo e2fsck -f -y HookFlare_fixed.dd
+
+e2fsck 1.47.2 (1-Jan-2025)
+Android-x86: recovering journal
+Clearing orphaned inode 117812 (uid=1000, gid=1000, mode=040755, size=4096)
+Clearing orphaned inode 117829 (uid=1000, gid=1000, mode=0100644, size=31493610)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Entry 'trace_04' in /android-9.0-r2/data/anr (109387) references inode 110283 found in group 14's unused inodes area.
+Fix? yes
+
+Restarting e2fsck from the beginning...
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Entry 'ChimeraConfigService.xml' in /android-9.0-r2/data/user_de/0/com.google.android.gms/shared_prefs (117577) has deleted/unused inode 118003.  Clear? yes
+
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Inode 110229 ref count is 1, should be 2.  Fix? yes
+
+Unattached inode 110271
+Connect to /lost+found? yes
+
+Inode 110271 ref count is 2, should be 1.  Fix? yes
+
+Unattached inode 118174
+Connect to /lost+found? yes
+
+Inode 118174 ref count is 2, should be 1.  Fix? yes
+
+Pass 5: Checking group summary information
+Block bitmap differences:  +(286784--286821) +(462006--462007) +(462060--462077) -466345 -467967 +(470439--470440) +470503 +(470946--470963) +(470965--470968) +(471028--471031) +471058 +497523 -501338 -(511981--511984) -(512565--512568)
+Fix? yes
+
+Free blocks count wrong for group #7 (17834, counted=17836).
+Fix? yes
+
+Free blocks count wrong for group #8 (14602, counted=14564).
+Fix? yes
+
+Free blocks count wrong for group #14 (27316, counted=27268).
+Fix? yes
+
+Free blocks count wrong for group #15 (21681, counted=21689).
+Fix? yes
+
+Free blocks count wrong (329325, counted=209411).
+Fix? yes
+
+Inode bitmap differences:  +110266 +(110279--110280) +(110282--110283) -118330
+Fix? yes
+
+Free inodes count wrong for group #14 (6842, counted=6837).
+Fix? yes
+
+Free inodes count wrong for group #15 (6579, counted=6580).
+Fix? yes
+
+Free inodes count wrong (132711, counted=128906).
+Fix? yes
+
+
+Android-x86: ***** FILE SYSTEM WAS MODIFIED *****
+Android-x86: 3830/132736 files (7.5% non-contiguous), 320726/530137 blocks
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads]
+└─$ sudo mount -o loop,ro HookFlare_fixed.dd /mnt/hookflare
+
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads]
+└─$ ls /mnt/hookflare
+
+android-9.0-r2  grub  lost+found
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads]
+└─$ 
+
+
+                                                                                                                  
+┌──(evtxenv)─(kali㉿kali)-[/mnt/hookflare/android-9.0-r2/data/data]
+└─$ sudo ls -la /mnt/hookflare/android-9.0-r2/data/data/com.google.android.apps.messaging
+
+total 44
+drwx------.   9 10077 10077 4096 Feb  1  2025 .
+drwxrwx--x. 103 kali  kali  4096 Feb  1  2025 ..
+drwxrwx--x.   2 10077 10077 4096 Feb  1  2025 app_logs
+drwxrws--x.   4 10077 20077 4096 Feb  1  2025 cache
+drwxrws--x.   2 10077 20077 4096 Feb  1  2025 code_cache
+drwxrwx--x.   2 10077 10077 4096 Feb  1  2025 databases
+drwx------.   7 10077 10077 4096 Feb  1  2025 files
+lrwxrwxrwx.   1 root  root    76 Feb  1  2025 lib -> '/data/app/com.google.android.apps.messaging-nr86SfcYMDyov6bWxyrVLQ==/lib/x86'
+drwxrwx--x.   2 10077 10077 4096 Feb  1  2025 no_backup
+drwxrwx--x.   2 10077 10077 4096 Feb  1  2025 shared_prefs
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[/mnt/hookflare/android-9.0-r2/data/data]
+└─$ sudo ls -la /mnt/hookflare/android-9.0-r2/data/data/com.google.android.apps.messaging/databases
+
+total 1612
+drwxrwx--x. 2 10077 10077   4096 Feb  1  2025 .
+drwx------. 9 10077 10077   4096 Feb  1  2025 ..
+-rw-------. 1 10077 10077 987136 Feb  1  2025 bugle_db
+-rw-------. 1 10077 10077  32768 Feb  1  2025 bugle_db-shm
+-rw-------. 1 10077 10077 524288 Feb  1  2025 bugle_db-wal
+-rw-rw----. 1 10077 10077   4096 Feb  1  2025 business_info
+-rw-------. 1 10077 10077  32768 Feb  1  2025 business_info-shm
+-rw-------. 1 10077 10077  53592 Feb  1  2025 business_info-wal
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[/mnt/hookflare/android-9.0-r2/data/data]
+└─$ sudo cp /mnt/hookflare/android-9.0-r2/data/data/com.google.android.apps.messaging/databases/bugle_db ~/bugle_db
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[/mnt/hookflare/android-9.0-r2/data/data]
+└─$ sudo chown $USER:$USER ~/bugle_db
+
+
+┌──(evtxenv)─(kali㉿kali)-[/mnt/hookflare/android-9.0-r2/data/data]
+└─$ sqlite3 ~/bugle_db
+
+sqlite> SELECT
+  m._id,
+  m.received_timestamp,
+  p.text
+FROM messages m
+JOIN parts p ON p.message_id = m._id
+ORDER BY m.received_timestamp ASC;
+5|1735688580318|Hello
+4|1738113115412|HELLO
+2|1738295280700|Hi Phillip
+3|1738295280700|Hi Phillip
+1|1738426832000|S1rBank Alert: We detected a paid process of $700.00 (Ref #971253158RS) on your account. To confirm this transaction, please update your app now: s1rbank.net/app Call +1 (505) 695-1110 for assistance.
+sqlite> 
+
+
+
+This returned:
+
+1 | 1738426832000 | S1rBank Alert: We detected a paid process of $700.00 ...
+
+✔ This identifies:
+    the phishing message
+    the received timestamp in milliseconds
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+# Task 2 - Provide the UTC timestamp marking the start of the malicious application download.
+
+
+
+
+
+
+
+
+-------------------------------------------------------------
+
+
