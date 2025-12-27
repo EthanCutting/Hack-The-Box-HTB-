@@ -353,15 +353,134 @@ evtx_dump.py Sysmon.evtx > sysmon.txt
 ALL at once = for f in *.evtx; do evtx_dump.py "$f" > "${f%.evtx}.txt"; done
 
 
-# Task 9 - 
+# Task 9 - What is the executable associated with the first service created by a Sysinternals tool on the target system following the attacker's initial login attempt?
 
-# Task 10
 
-# Task 11
 
-# Task 12
+# Task 10 - On Client03, what was the file name of the executable used to dump cleartext credentials from memory?
+netdiag.exe
 
-# Task 13
+                                                                             
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads/GhostTrace/Logs-Client03]
+└─$ grep -n "TargetImage\">.*lsass.exe" Sysmon.txt -A 40 \
+| grep -Ei "SourceImage|Image>|CallTrace" \
+| sed -n '1,20p'
+
+3991-<Data Name="CallTrace">C:\Windows\SYSTEM32\ntdll.dll+9e8f4|C:\Windows\SYSTEM32\KERNELBASE.dll+8e73|C:\Windows\SYSTEM32\KERNELBASE.dll+71a6|C:\Windows\SYSTEM32\KERNEL32.DLL+1cbb4|C:\Windows\system32\wininit.exe+27703|C:\Windows\system32\wininit.exe+253f8|C:\Windows\system32\wininit.exe+29b31|C:\Windows\system32\wininit.exe+2ac5f|C:\Windows\system32\wininit.exe+4666|C:\Windows\SYSTEM32\KERNEL32.DLL+17034|C:\Windows\SYSTEM32\ntdll.dll+526a1</Data>
+4017-<Data Name="SourceImage">C:\Windows\system32\csrss.exe</Data>
+4022-<Data Name="CallTrace">C:\Windows\SYSTEM32\ntdll.dll+9d4c4|C:\Windows\system32\basesrv.DLL+326f|C:\Windows\SYSTEM32\CSRSRV.dll+6490|C:\Windows\SYSTEM32\ntdll.dll+526af</Data>
+8262-<Data Name="CallTrace">C:\Windows\SYSTEM32\ntdll.dll+9d4c4|C:\Windows\SYSTEM32\ntdll.dll+d7c1a|C:\Windows\SYSTEM32\KERNEL32.DLL+1decc|C:\Windows\SYSTEM32\KERNEL32.DLL+2655e|C:\Windows\Sysmon64.exe+ecb25|C:\Windows\Sysmon64.exe+ee340|C:\Windows\Sysmon64.exe+ef519|C:\Windows\Sysmon64.exe+f466a|C:\Windows\Sysmon64.exe+fc45c|C:\Windows\Sysmon64.exe+10e924|C:\Windows\Sysmon64.exe+10ea55|C:\Windows\Sysmon64.exe+1adaf2|C:\Windows\SYSTEM32\KERNEL32.DLL+17034|C:\Windows\SYSTEM32\ntdll.dll+526a1</Data>
+19173-<Data Name="CallTrace">C:\Windows\SYSTEM32\ntdll.dll+9d4c4|C:\Windows\SYSTEM32\ntdll.dll+d7c1a|C:\Windows\SYSTEM32\KERNEL32.DLL+1decc|C:\Windows\SYSTEM32\KERNEL32.DLL+2655e|C:\Windows\Sysmon64.exe+ecb25|C:\Windows\Sysmon64.exe+ee340|C:\Windows\Sysmon64.exe+12ee13|C:\Windows\Sysmon64.exe+12ecbc|C:\Windows\Sysmon64.exe+ef2d1|C:\Windows\Sysmon64.exe+10cb18|C:\Windows\Sysmon64.exe+e2702|C:\Windows\Sysmon64.exe+e2857|C:\Windows\SYSTEM32\sechost.dll+380b|C:\Windows\SYSTEM32\sechost.dll+3647|C:\Windows\SYSTEM32\sechost.dll+b88a|C:\Windows\Sysmon64.exe+e29eb|C:\Windows\Sysmon64.exe+1adaf2|C:\Windows\SYSTEM32\KERNEL32.DLL+17034|C:\Windows\SYSTEM32\ntdll.dll+526a1</Data>
+139336-<Data Name="CallTrace">C:\Windows\SYSTEM32\ntdll.dll+9d4c4|C:\Windows\System32\KERNELBASE.dll+2c13e|C:\Users\jody\Downloads\netdiag.exe+b6222|C:\Users\jody\Downloads\netdiag.exe+b65e5|C:\Users\jody\Downloads\netdiag.exe+b6161|C:\Users\jody\Downloads\netdiag.exe+838f4|C:\Users\jody\Downloads\netdiag.exe+8372c|C:\Users\jody\Downloads\netdiag.exe+83509|C:\Users\jody\Downloads\netdiag.exe+bcbc9|C:\Windows\System32\KERNEL32.DLL+17034|C:\Windows\SYSTEM32\ntdll.dll+526a1</Data>
+146961-<Data Name="CallTrace">C:\Windows\SYSTEM32\ntdll.dll+9d4c4|C:\Windows\System32\KERNELBASE.dll+2c13e|C:\Users\jody\Downloads\netdiag.exe+b6222|C:\Users\jody\Downloads\netdiag.exe+b65e5|C:\Users\jody\Downloads\netdiag.exe+b6161|C:\Users\jody\Downloads\netdiag.exe+838f4|C:\Users\jody\Downloads\netdiag.exe+8372c|C:\Users\jody\Downloads\netdiag.exe+83509|C:\Users\jody\Downloads\netdiag.exe+bcbc9|C:\Windows\System32\KERNEL32.DLL+17034|C:\Windows\SYSTEM32\ntdll.dll+526a1</Data>
+                                                                  
+
+# Task 11 - What is the username of the account whose cleartext password was found on Client03?
+
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads/GhostTrace/Logs-Client03]
+└─$ rg -nI "(?i)username\s*:|user(name)?\s*:|account name\s*:|cleartext|password\s*:" . \
+| head -n 200
+
+47113:<Data Name="CommandLine">"C:\Windows\system32\runas.exe" /user:Main\lucas cmd</Data>
+139391:<Data Name="CommandLine">"C:\Windows\system32\runas.exe" /user:Main\lucas cmd</Data>
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads/GhostTrace/Logs-Client03]
+└─$ 
+
+
+# Task 12 - After obtaining the cleartext password of this account, the attacker carried out a domain-level credential extraction attack. At what time did the compromised account perform this attack on the domain? (UTC)
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads/GhostTrace/Logs-Client03]
+└─$ sed -n '52060,52140p' Security.txt
+
+</EventData>
+</Event>
+
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"><System><Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}"></Provider>
+<EventID Qualifiers="">4634</EventID>
+<Version>0</Version>
+<Level>0</Level>
+<Task>12545</Task>
+<Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords>
+<TimeCreated SystemTime="2025-05-25 04:24:31.170460"></TimeCreated>
+<EventRecordID>82712</EventRecordID>
+<Correlation ActivityID="" RelatedActivityID=""></Correlation>
+<Execution ProcessID="680" ThreadID="6804"></Execution>
+<Channel>Security</Channel>
+<Computer>Client03.Main.local</Computer>
+<Security UserID=""></Security>
+</System>
+<EventData><Data Name="TargetUserSid">S-1-5-21-620716483-2719109048-3577772375-2115</Data>
+<Data Name="TargetUserName">sqlsvc</Data>
+<Data Name="TargetDomainName">MAIN</Data>
+<Data Name="TargetLogonId">0x000000000059f781</Data>
+<Data Name="LogonType">3</Data>
+</EventData>
+</Event>
+
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"><System><Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}"></Provider>
+<EventID Qualifiers="">4672</EventID>
+<Version>0</Version>
+<Level>0</Level>
+<Task>12548</Task>
+<Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords>
+<TimeCreated SystemTime="2025-05-25 04:24:47.804554"></TimeCreated>
+<EventRecordID>82713</EventRecordID>
+<Correlation ActivityID="{92279f6e-cd1d-0000-4ba0-27921dcddb01}" RelatedActivityID=""></Correlation>
+<Execution ProcessID="680" ThreadID="6804"></Execution>
+<Channel>Security</Channel>
+<Computer>Client03.Main.local</Computer>
+<Security UserID=""></Security>
+</System>
+<EventData><Data Name="SubjectUserSid">S-1-5-21-620716483-2719109048-3577772375-2114</Data>
+<Data Name="SubjectUserName">lucas</Data>
+<Data Name="SubjectDomainName">MAIN</Data>
+<Data Name="SubjectLogonId">0x00000000022f6f58</Data>
+<Data Name="PrivilegeList">SeSecurityPrivilege
+                        SeBackupPrivilege
+                        SeRestorePrivilege
+                        SeTakeOwnershipPrivilege
+                        SeDebugPrivilege
+                        SeSystemEnvironmentPrivilege
+                        SeLoadDriverPrivilege
+                        SeImpersonatePrivilege
+                        SeDelegateSessionUserImpersonatePrivilege</Data>
+</EventData>
+</Event>
+
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"><System><Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}"></Provider>
+<EventID Qualifiers="">4624</EventID>
+<Version>2</Version>
+<Level>0</Level>
+<Task>12544</Task>
+<Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords>
+<TimeCreated SystemTime="2025-05-25 04:24:47.804672"></TimeCreated>
+<EventRecordID>82714</EventRecordID>
+<Correlation ActivityID="{92279f6e-cd1d-0000-4ba0-27921dcddb01}" RelatedActivityID=""></Correlation>
+<Execution ProcessID="680" ThreadID="6804"></Execution>
+<Channel>Security</Channel>
+<Computer>Client03.Main.local</Computer>
+<Security UserID=""></Security>
+</System>
+<EventData><Data Name="SubjectUserSid">S-1-0-0</Data>
+<Data Name="SubjectUserName">-</Data>
+<Data Name="SubjectDomainName">-</Data>
+<Data Name="SubjectLogonId">0x0000000000000000</Data>
+<Data Name="TargetUserSid">S-1-5-21-620716483-2719109048-3577772375-2114</Data>
+<Data Name="TargetUserName">lucas</Data>
+<Data Name="TargetDomainName">MAIN</Data>
+<Data Name="TargetLogonId">0x00000000022f6f58</Data>
+<Data Name="LogonType">3</Data>
+                                                                                                                    
+┌──(evtxenv)─(kali㉿kali)-[~/Downloads/GhostTrace/Logs-Client03]
+└─$ 
+
+
+
+# Task 13 - After obtaining the cleartext password of this account, the attacker carried out a domain-level credential extraction attack. At what time did the compromised account perform this attack on the domain? (UTC)
+
 
 # Task 14
 
