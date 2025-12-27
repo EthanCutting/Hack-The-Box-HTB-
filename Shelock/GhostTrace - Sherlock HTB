@@ -3,6 +3,27 @@
 sudo apt update
 sudo apt install python3-evtx regripper
 
+STEP 1: Install python-evtx (correct way on Kali)
+
+Because Kali uses an externally managed Python, do this cleanly:
+
+sudo apt update
+sudo apt install python3-venv python3-pip -y
+
+
+Create a virtual environment (recommended by Kali):
+
+python3 -m venv evtxenv
+source evtxenv/bin/activate
+
+
+Now install python-evtx inside the venv:
+
+pip install python-evtx
+
+
+You should see no errors.
+
 -------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------
 # 🧠 Task 1 - What is the name of the malicious phishing attachment downloaded by the user on Client02?
@@ -327,9 +348,12 @@ Why this is correct:
 
 
 # Task 8 - After acquiring the account credentials, the attacker was able to crack the ticket. When did the attacker first use them to log in? (UTC)
+evtx_dump.py Sysmon.evtx > sysmon.txt
+
+ALL at once = for f in *.evtx; do evtx_dump.py "$f" > "${f%.evtx}.txt"; done
 
 
-# Task 9
+# Task 9 - 
 
 # Task 10
 
