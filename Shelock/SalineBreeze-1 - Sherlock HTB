@@ -43,58 +43,77 @@ Go (Golang)
 Go is commonly used in modern malware because it allows easy cross-platform compilation, produces statically linked binaries, and runs well on Linux-based systems — making it well suited for targeting network infrastructure.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 7 - 
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 8 -
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 9 -
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 10 -
+# Task 7 - On which vendor's devices does the malware act as a network sniffer?
 
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 11 -
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 12 -
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 13 -
+# Task 8 - The malware can perform 'Indicator Removal' by erasing logs. What is the MITRE ATT&CK ID for this?
 
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 14 - 
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 15  -
+# Task 9 - On December 20th, 2024, Picus Security released a blog on Salt Typhoon detailing some of the CVEs associated with the threat actor. What was the CVE for the vulnerability related to the Sophos Firewall?
 
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 16 -
+# Task 10 - The blog demonstrates how the group modifies the registry to obtain persistence with a backdoor known as Crowdoor. Which registry key do they target?
+
+
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 17 -
+# Task 11 - What is the MITRE ATT&CK ID of the previous technique?
 
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 18 -
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 19 -
+# Task 12 - On November 25th, 2024, TrendMicro published a blog post detailing the threat actor. What name does this blog primarily use to refer to the group?
+
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Task 20 -
+# Task 13 - The blog post identifies additional malware attributed to the threat actor. Which malware do they describe as a 'multi-modular backdoor...using a custom protocol protected by Transport Layer Security'
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 14 - Most of the domains the malware communicates with have a .com top-level domain. One uses a .dev TLD. What is the full domain name for the .dev TLD?
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 15  - What is the filename for the first GET request to the C&C server used by the malware?
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 16 - On September 30th, 2021, a blog post was released on Securelist by Kaspersky. What was the threat actor's name at that time?
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 17 - What is the name of the malware that this article focuses on?
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 18 - What type of malware is the above malware?
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 19 - The first stage consists of a malicious PowerShell dropper. What type of encryption is used to obfuscate the code?
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 20 - The malware uses Input/Output Control codes to perform various tasks related to hiding malicious artifacts. What is the IOCTL code used by the malware to hide its service from the list within the services.exe process address space?
+The malware uses Input/Output Control codes to perform various tasks related to hiding malicious artifacts. What is the IOCTL code used by the malware to hide its service from the list within the services.exe process address space?
+
+
+
+
+
