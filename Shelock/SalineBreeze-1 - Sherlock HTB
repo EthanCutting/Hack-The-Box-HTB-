@@ -1,0 +1,100 @@
+#
+
+
+# Task 1 - Starting with the MITRE ATT&CK page, which country is thought be behind Salt Typhoon?
+🇨🇳 China (People’s Republic of China)
+MITRE assesses Salt Typhoon as a China-nexus, state-sponsored threat actor, based on its targeting, tradecraft, and overlap with other PRC-linked espionage operations.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 2 - According to that page, Salt Typhoon has been active since at least when? (Year)
+According to the MITRE ATT&CK page for Salt Typhoon (G1045), the group has been active since at least 2019.
+What “since at least 2019” means (and why MITRE phrases it this way)
+- Earliest confirmed activity: 2019 is the earliest year with reliable, publicly reported evidence that analysts can confidently attribute to this group.
+- Not necessarily the beginning: Nation-state groups often operate years before they’re discovered. The wording “since at least” acknowledges that Salt Typhoon may have been active earlier, but 2019 is the first point with solid attribution.
+- Long-term espionage: Activity spanning multiple years is typical of state-linked threat actors, especially those focused on telecommunications and network infrastructure, where persistence and stealth matter more than quick impact.
+- Consistent tradecraft over time: Since 2019, reporting shows recurring patterns—use of valid credentials, network device configuration dumping, traffic capture, tunneling, and log clearing—indicating a mature, well-resourced operation rather than an ad-hoc campaign.
+- In short, 2019 marks the beginning of Salt Typhoon’s known and documented operations, highlighting that this is a long-running espionage actor, not a recent or opportunistic threat.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 3 - What kind of infrastructure does Salt Typhoon target?
+Salt Typhoon primarily targets network infrastructure, especially:
+🛰️ Telecommunications & ISP infrastructure
+This includes:
+- Core and edge routers
+- Switches
+- Network management systems (NMS)
+- Devices used by telecommunications companies and internet service providers (ISPs)
+Rather than focusing on individual laptops or servers, Salt Typhoon goes after the plumbing of the internet.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 4 - Salt Typhoon has been associated with multiple custom built malware, what is the name of the malware associated with the ID S1206?
+JumbledPath is a custom-built malware linked to Salt Typhoon, used primarily against network infrastructure devices. It has been observed acting as a network sniffer and supporting long-term espionage operations, which aligns with Salt Typhoon’s focus on telecommunications environments.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 5 - What operating system does this malware target?
+More specifically:
+- It runs on Linux, including embedded Linux used by network infrastructure devices (such as routers and switches in telecom/ISP environments).
+- It is compiled as an ELF binary, which is standard for Linux systems.
+- This fits Salt Typhoon’s focus on network infrastructure, since many enterprise and telecom network devices run customized versions of Linux rather than Windows.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 6 - What programming language is the malware written in?
+Go (Golang)
+Go is commonly used in modern malware because it allows easy cross-platform compilation, produces statically linked binaries, and runs well on Linux-based systems — making it well suited for targeting network infrastructure.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 7 - 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 8 -
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 9 -
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 10 -
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 11 -
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 12 -
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 13 -
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 14 - 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 15  -
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 16 -
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 17 -
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 18 -
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 19 -
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Task 20 -
