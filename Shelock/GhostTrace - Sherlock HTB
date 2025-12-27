@@ -222,21 +222,112 @@ Why this is correct:
 --------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------
 # Task 4 - What is the name of the second-stage payload uploaded to Client02?
+┌──(bobby㉿bobby)-[~/…/Shelock/Ghost Trace/GhostTrace/Logs-Client02]
+└─$ grep -nEi "TargetFilename.*\.exe" sysmon.txt
+
+117:<Data Name="TargetFilename">C:\$Recycle.Bin\S-1-5-21-620716483-2719109048-3577772375-2107\$I59Q03F.exe</Data>
+5079:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5106:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5168:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5194:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5221:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+                                                                                                                                                                                                                                                                             
+┌──(bobby㉿bobby)-[~/…/Shelock/Ghost Trace/GhostTrace/Logs-Client02]
 
 
 
+┌──(bobby㉿bobby)-[~/…/Shelock/Ghost Trace/GhostTrace/Logs-Client02]
+└─$ grep -n "UpdatePolicy.exe" sysmon.txt
+
+5079:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5106:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5168:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5194:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5221:<Data Name="TargetFilename">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5281:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5287:<Data Name="CommandLine">"C:\Users\jody\Downloads\UpdatePolicy.exe"</Data>
+5326:<Data Name="TargetImage">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5353:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5354:<Data Name="ImageLoaded">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5387:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5424:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5451:<Data Name="SourceImage">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5497:<Data Name="ParentImage">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+5498:<Data Name="ParentCommandLine">"C:\Users\jody\Downloads\UpdatePolicy.exe"</Data>
+6613:<Data Name="TargetImage">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+7019:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+7061:<Data Name="ParentImage">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+7062:<Data Name="ParentCommandLine">"C:\Users\jody\Downloads\UpdatePolicy.exe"</Data>
+7087:<Data Name="SourceImage">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+7605:<Data Name="TargetImage">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+11739:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+11745:<Data Name="CommandLine">"C:\Users\jody\Downloads\UpdatePolicy.exe"</Data>
+11784:<Data Name="TargetImage">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+11811:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+11812:<Data Name="ImageLoaded">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+11845:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+11881:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
+11908:<Data Name="Image">C:\Users\jody\Downloads\UpdatePolicy.exe</Data>
 
 
-
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 # Task 5 - What port was used for the reverse shell connection from the second-stage payload on Client02?
+┌──(bobby㉿bobby)-[~/…/Shelock/Ghost Trace/GhostTrace/Logs-Client02]
+└─$ grep -n "UpdatePolicy.exe" sysmon.txt -A 20 | grep -E "DestinationIp|DestinationPort"
+
+5397-<Data Name="DestinationIp">192.168.204.152</Data>
+5399-<Data Name="DestinationPort">1337</Data>
+5400-<Data Name="DestinationPortName">-</Data>
+11855-<Data Name="DestinationIp">192.168.204.152</Data>
+11857-<Data Name="DestinationPort">1337</Data>
+11858-<Data Name="DestinationPortName">-</Data>
+                                                                                                                                                                                                                                                                             
+┌──(bobby㉿bobby)-[~/…/Shelock/Ghost Trace/GhostTrace/Logs-Client02]
+└─$ 
 
 
-# Task 6
+# Task 6 - The attacker subsequently downloaded a tool to enumerate the Active Directory environment. What is the name of this tool?
+┌──(bobby㉿bobby)-[~/…/Shelock/Ghost Trace/GhostTrace/Logs-Client02]
+└─$ grep -nEi "SharpHound|BloodHound|PowerView|ADRecon" sysmon.txt
 
-# Task 7
+6517:<Data Name="TargetFilename">C:\Users\jody\Downloads\PowerView.ps1</Data>
+
+# Task 7 - What is the username of the targeted service account?
+
+┌──(bobby㉿bobby)-[~/…/Shelock/Ghost Trace/GhostTrace/Logs-DC]
+└─$ sed -n '76125,76150p' dc_security.txt
+
+<EventID Qualifiers="">4769</EventID>
+<Version>0</Version>
+<Level>0</Level>
+<Task>14337</Task>
+<Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords>
+<TimeCreated SystemTime="2025-05-25 03:42:33.365751"></TimeCreated>
+<EventRecordID>751792</EventRecordID>
+<Correlation ActivityID="" RelatedActivityID=""></Correlation>
+<Execution ProcessID="720" ThreadID="2728"></Execution>
+<Channel>Security</Channel>
+<Computer>DC01.Main.local</Computer>
+<Security UserID=""></Security>
+</System>
+<EventData><Data Name="TargetUserName">jody@MAIN.LOCAL</Data>
+<Data Name="TargetDomainName">MAIN.LOCAL</Data>
+<Data Name="ServiceName">sqlsvc</Data>
+<Data Name="ServiceSid">S-1-5-21-620716483-2719109048-3577772375-2115</Data>
+<Data Name="TicketOptions">0x40810000</Data>
+<Data Name="TicketEncryptionType">0x00000017</Data>
+<Data Name="IpAddress">::ffff:192.168.204.129</Data>
+<Data Name="IpPort">49911</Data>
+<Data Name="Status">0x00000000</Data>
+<Data Name="LogonGuid">{7804a58c-08b2-101c-f072-ae2c8fb8d1aa}</Data>
+<Data Name="TransmittedServices">-</Data>
+</EventData>
 
 
-# Task 8
+# Task 8 - After acquiring the account credentials, the attacker was able to crack the ticket. When did the attacker first use them to log in? (UTC)
+
 
 # Task 9
 
