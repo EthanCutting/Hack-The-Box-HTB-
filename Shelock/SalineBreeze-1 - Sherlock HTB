@@ -1,6 +1,6 @@
-#
-
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# SalineBreeze-1 - Sherlock HTB
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 1 - Starting with the MITRE ATT&CK page, which country is thought be behind Salt Typhoon?
 🇨🇳 China (People’s Republic of China)
 MITRE assesses Salt Typhoon as a China-nexus, state-sponsored threat actor, based on its targeting, tradecraft, and overlap with other PRC-linked espionage operations.
@@ -44,29 +44,47 @@ Go is commonly used in modern malware because it allows easy cross-platform comp
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 7 - On which vendor's devices does the malware act as a network sniffer?
-
-
+JumbledPath has been observed running on Cisco network infrastructure devices (such as routers and switches), where it captures network traffic directly from the device. This aligns with Salt Typhoon’s focus on telecommunications and ISP environments, where Cisco equipment is widely deployed and highly trusted.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 8 - The malware can perform 'Indicator Removal' by erasing logs. What is the MITRE ATT&CK ID for this?
-
-
+T1070.002 — Indicator Removal on Host: Clear Linux or Mac System Logs
+This covers malware behavior that clears system logs (e.g., .bash_history, auth.log, wtmp/btmp) to remove evidence of compromise.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 9 - On December 20th, 2024, Picus Security released a blog on Salt Typhoon detailing some of the CVEs associated with the threat actor. What was the CVE for the vulnerability related to the Sophos Firewall?
-
-
+According to the Picus Security blog published on December 20th, 2024, the vulnerability related to the Sophos Firewall associated with Salt Typhoon is:
+CVE-2022-3236
+This CVE is a remote code execution (RCE) vulnerability in Sophos Firewall that has been exploited by threat actors to gain unauthorized access, making it relevant to Salt Typhoon’s operations.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 10 - The blog demonstrates how the group modifies the registry to obtain persistence with a backdoor known as Crowdoor. Which registry key do they target?
+For Task 10, the blog explains that Salt Typhoon / GhostEmperor establishes persistence for the Crowdoor backdoor by abusing a common Windows auto-start location.
 
+✅ Registry key targeted for persistence
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
+🔍 Why this key matters
+  - Any value added under this Run key is executed automatically at system startup
+  - It allows the backdoor to survive reboots
+  - This is a classic and reliable persistence mechanism used by many advanced threat actors
 
+🧠 MITRE ATT&CK mapping
+  - Technique: Boot or Logon Autostart Execution
+  - Sub-technique: Registry Run Keys / Startup Folder
+
+ATT&CK ID: T1547.001
+  - This fits perfectly with Crowdoor’s role as a long-term backdoor focused on stealth and persistence.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 11 - What is the MITRE ATT&CK ID of the previous technique?
+T1112 covers any activity where an attacker creates, alters, or deletes Windows registry keys or values to change system behavior.
 
-
+This is a supporting technique, meaning it often enables:
+  - Persistence
+  - Defense evasion
+  - Privilege escalation
+  - Configuration tampering
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 12 - On November 25th, 2024, TrendMicro published a blog post detailing the threat actor. What name does this blog primarily use to refer to the group?
