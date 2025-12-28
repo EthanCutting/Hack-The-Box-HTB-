@@ -393,79 +393,49 @@ netdiag.exe
 
 
 # Task 12 - After obtaining the cleartext password of this account, the attacker carried out a domain-level credential extraction attack. At what time did the compromised account perform this attack on the domain? (UTC)
-┌──(evtxenv)─(kali㉿kali)-[~/Downloads/GhostTrace/Logs-Client03]
-└─$ sed -n '52060,52140p' Security.txt
 
-</EventData>
-</Event>
+evtx_dump.py Security.evtx > Security.txt
 
-<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"><System><Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}"></Provider>
-<EventID Qualifiers="">4634</EventID>
-<Version>0</Version>
-<Level>0</Level>
-<Task>12545</Task>
-<Opcode>0</Opcode>
-<Keywords>0x8020000000000000</Keywords>
-<TimeCreated SystemTime="2025-05-25 04:24:31.170460"></TimeCreated>
-<EventRecordID>82712</EventRecordID>
-<Correlation ActivityID="" RelatedActivityID=""></Correlation>
-<Execution ProcessID="680" ThreadID="6804"></Execution>
-<Channel>Security</Channel>
-<Computer>Client03.Main.local</Computer>
-<Security UserID=""></Security>
-</System>
-<EventData><Data Name="TargetUserSid">S-1-5-21-620716483-2719109048-3577772375-2115</Data>
-<Data Name="TargetUserName">sqlsvc</Data>
-<Data Name="TargetDomainName">MAIN</Data>
-<Data Name="TargetLogonId">0x000000000059f781</Data>
-<Data Name="LogonType">3</Data>
-</EventData>
-</Event>
+┌──(kali㉿kali)-[~/Downloads/GhostTrace/Logs-DC]
+└─$ grep -n "SubjectUserName" Security.xml | grep -i ">lucas<" | head -n 20
 
-<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"><System><Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}"></Provider>
-<EventID Qualifiers="">4672</EventID>
-<Version>0</Version>
-<Level>0</Level>
-<Task>12548</Task>
-<Opcode>0</Opcode>
-<Keywords>0x8020000000000000</Keywords>
-<TimeCreated SystemTime="2025-05-25 04:24:47.804554"></TimeCreated>
-<EventRecordID>82713</EventRecordID>
-<Correlation ActivityID="{92279f6e-cd1d-0000-4ba0-27921dcddb01}" RelatedActivityID=""></Correlation>
-<Execution ProcessID="680" ThreadID="6804"></Execution>
-<Channel>Security</Channel>
-<Computer>Client03.Main.local</Computer>
-<Security UserID=""></Security>
-</System>
-<EventData><Data Name="SubjectUserSid">S-1-5-21-620716483-2719109048-3577772375-2114</Data>
-<Data Name="SubjectUserName">lucas</Data>
-<Data Name="SubjectDomainName">MAIN</Data>
-<Data Name="SubjectLogonId">0x00000000022f6f58</Data>
-<Data Name="PrivilegeList">SeSecurityPrivilege
-                        SeBackupPrivilege
-                        SeRestorePrivilege
-                        SeTakeOwnershipPrivilege
-                        SeDebugPrivilege
-                        SeSystemEnvironmentPrivilege
-                        SeLoadDriverPrivilege
-                        SeImpersonatePrivilege
-                        SeDelegateSessionUserImpersonatePrivilege</Data>
-</EventData>
-</Event>
+97019:<Data Name="SubjectUserName">lucas</Data>
+97055:<Data Name="SubjectUserName">lucas</Data>
+97091:<Data Name="SubjectUserName">lucas</Data>
+97127:<Data Name="SubjectUserName">lucas</Data>
+97163:<Data Name="SubjectUserName">lucas</Data>
+97199:<Data Name="SubjectUserName">lucas</Data>
+97235:<Data Name="SubjectUserName">lucas</Data>
+97271:<Data Name="SubjectUserName">lucas</Data>
+97307:<Data Name="SubjectUserName">lucas</Data>
+97343:<Data Name="SubjectUserName">lucas</Data>
+97379:<Data Name="SubjectUserName">lucas</Data>
+97415:<Data Name="SubjectUserName">lucas</Data>
+97451:<Data Name="SubjectUserName">lucas</Data>
+97487:<Data Name="SubjectUserName">lucas</Data>
+97523:<Data Name="SubjectUserName">lucas</Data>
+97559:<Data Name="SubjectUserName">lucas</Data>
+97595:<Data Name="SubjectUserName">lucas</Data>
+97631:<Data Name="SubjectUserName">lucas</Data>
+97667:<Data Name="SubjectUserName">lucas</Data>
+97703:<Data Name="SubjectUserName">lucas</Data>
+                                                                                                                    
+┌──(kali㉿kali)-[~/Downloads/GhostTrace/Logs-DC]
 
-<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"><System><Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}"></Provider>
-<EventID Qualifiers="">4624</EventID>
+┌──(kali㉿kali)-[~/Downloads/GhostTrace/Logs-DC]
+└─$ sed -n '96960,97040p' Security.xml
+
 <Version>2</Version>
 <Level>0</Level>
 <Task>12544</Task>
 <Opcode>0</Opcode>
 <Keywords>0x8020000000000000</Keywords>
-<TimeCreated SystemTime="2025-05-25 04:24:47.804672"></TimeCreated>
-<EventRecordID>82714</EventRecordID>
-<Correlation ActivityID="{92279f6e-cd1d-0000-4ba0-27921dcddb01}" RelatedActivityID=""></Correlation>
-<Execution ProcessID="680" ThreadID="6804"></Execution>
+<TimeCreated SystemTime="2025-05-25 04:26:36.414717"></TimeCreated>
+<EventRecordID>752440</EventRecordID>
+<Correlation ActivityID="" RelatedActivityID=""></Correlation>
+<Execution ProcessID="720" ThreadID="5252"></Execution>
 <Channel>Security</Channel>
-<Computer>Client03.Main.local</Computer>
+<Computer>DC01.Main.local</Computer>
 <Security UserID=""></Security>
 </System>
 <EventData><Data Name="SubjectUserSid">S-1-0-0</Data>
@@ -475,21 +445,142 @@ netdiag.exe
 <Data Name="TargetUserSid">S-1-5-21-620716483-2719109048-3577772375-2114</Data>
 <Data Name="TargetUserName">lucas</Data>
 <Data Name="TargetDomainName">MAIN</Data>
-<Data Name="TargetLogonId">0x00000000022f6f58</Data>
+<Data Name="TargetLogonId">0x00000000003aef74</Data>
 <Data Name="LogonType">3</Data>
+<Data Name="LogonProcessName">NtLmSsp </Data>
+<Data Name="AuthenticationPackageName">NTLM</Data>
+<Data Name="WorkstationName">-</Data>
+<Data Name="LogonGuid">{00000000-0000-0000-0000-000000000000}</Data>
+<Data Name="TransmittedServices">-</Data>
+<Data Name="LmPackageName">NTLM V2</Data>
+<Data Name="KeyLength">128</Data>
+<Data Name="ProcessId">0x0000000000000000</Data>
+<Data Name="ProcessName">-</Data>
+<Data Name="IpAddress">192.168.204.152</Data>
+<Data Name="IpPort">36792</Data>
+<Data Name="ImpersonationLevel">%%1833</Data>
+<Data Name="RestrictedAdminMode">-</Data>
+<Data Name="TargetOutboundUserName">-</Data>
+<Data Name="TargetOutboundDomainName">-</Data>
+<Data Name="VirtualAccount">%%1843</Data>
+<Data Name="TargetLinkedLogonId">0x0000000000000000</Data>
+<Data Name="ElevatedToken">%%1842</Data>
+</EventData>
+</Event>
+
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"><System><Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}"></Provider>
+<EventID Qualifiers="">4662</EventID>
+<Version>0</Version>
+<Level>0</Level>
+<Task>14080</Task>
+<Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords>
+<TimeCreated SystemTime="2025-05-25 04:26:36.444393"></TimeCreated>
+<EventRecordID>752441</EventRecordID>
+<Correlation ActivityID="" RelatedActivityID=""></Correlation>
+<Execution ProcessID="720" ThreadID="832"></Execution>
+<Channel>Security</Channel>
+<Computer>DC01.Main.local</Computer>
+<Security UserID=""></Security>
+</System>
+<EventData><Data Name="SubjectUserSid">S-1-5-21-620716483-2719109048-3577772375-2114</Data>
+<Data Name="SubjectUserName">lucas</Data>
+<Data Name="SubjectDomainName">MAIN</Data>
+<Data Name="SubjectLogonId">0x00000000003aef74</Data>
+<Data Name="ObjectServer">DS</Data>
+<Data Name="ObjectType">%{19195a5b-6da0-11d0-afd3-00c04fd930c9}</Data>
+<Data Name="ObjectName">%{b426bd63-8141-407d-b9df-12a6730bdca0}</Data>
+<Data Name="OperationType">Object Access</Data>
+<Data Name="HandleId">0x0000000000000000</Data>
+<Data Name="AccessList">%%7688
+                                </Data>
+<Data Name="AccessMask">0x00000100</Data>
+<Data Name="Properties">%%7688
+                {1131f6aa-9c07-11d1-f79f-00c04fc2dcd2}
+        {19195a5b-6da0-11d0-afd3-00c04fd930c9}
+</Data>
+<Data Name="AdditionalInfo">-</Data>
+<Data Name="AdditionalInfo2"></Data>
+</EventData>
+</Event>
+
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"><System><Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}"></Provider>
+<EventID Qualifiers="">4662</EventID>
+
+
+# Task 13 - At what time did the attacker initially authenticate using the administrator account? (UTC)                                                                                                         
                                                                                                                     
-┌──(evtxenv)─(kali㉿kali)-[~/Downloads/GhostTrace/Logs-Client03]
+┌──(kali㉿kali)-[~/Downloads/GhostTrace/Logs-DC]
+└─$ awk 'BEGIN{RS="</Event>"; ORS=""}
+     /<EventID Qualifiers="">4624<\/EventID>/ &&
+     /<Data Name="TargetUserName">Administrator<\/Data>/ &&
+     /<Data Name="LogonType">(3|10)<\/Data>/ {
+        if (match($0, /<TimeCreated SystemTime="[^"]+"/, t)) print t[0] "\n";
+        if (match($0, /<Data Name="IpAddress">[^<]+</, ip)) print ip[0] "\n";
+        if (match($0, /<Data Name="LogonType">[^<]+</, lt)) print lt[0] "\n";
+        print "----\n"
+     }' Security.xml
+
+<TimeCreated SystemTime="2025-05-25 04:34:01.312634"
+<Data Name="IpAddress">-<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 04:37:11.522133"
+<Data Name="IpAddress">-<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 04:38:09.027359"
+<Data Name="IpAddress">-<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 04:38:52.895758"
+<Data Name="IpAddress">-<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 04:40:09.101950"
+<Data Name="IpAddress">-<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 04:41:28.077738"
+<Data Name="IpAddress">-<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 04:43:01.195414"
+<Data Name="IpAddress">-<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 04:43:24.003975"
+<Data Name="IpAddress">-<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 05:23:51.747841"
+<Data Name="IpAddress">192.168.204.129<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 05:26:43.330988"
+<Data Name="IpAddress">192.168.204.129<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 05:28:37.285995"
+<Data Name="IpAddress">192.168.204.148<
+<Data Name="LogonType">3<
+----
+<TimeCreated SystemTime="2025-05-25 05:32:26.044134"
+<Data Name="IpAddress">192.168.204.148<
+<Data Name="LogonType">3<
+----
+                                                                                                                    
+┌──(kali㉿kali)-[~/Downloads/GhostTrace/Logs-DC]
 └─$ 
 
+# Task 14 - What is the name of the service created by the attacker on DC01 for persistence?
 
 
-# Task 13 - After obtaining the cleartext password of this account, the attacker carried out a domain-level credential extraction attack. At what time did the compromised account perform this attack on the domain? (UTC)
+# Task 15 - What is the name of the scheduled task created by the attacker on DC01 for persistence?
 
 
-# Task 14
+# Task 16 - What is the registry key name created by the attacker on DC01 for persistence?
 
-# Task 15
 
-# Task 16
 
 
