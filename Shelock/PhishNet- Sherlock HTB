@@ -1,5 +1,7 @@
 
 ## PhishNet - Very Easy
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 An accounting team receives an urgent payment request from a known vendor. The email appears legitimate but contains a suspicious link and a .zip attachment hiding malware. Your task is to analyze the email headers, and uncover the attacker's scheme.
 
 # 🧠 What PhishNet is actually testing
@@ -13,30 +15,29 @@ You ARE meant to:
   - Trace sender infrastructure
   - Extract URLs & attachments safely
 
-------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 1 - What is the originating IP address of the sender?
 45.67.89.10
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 2 - Which mail server relayed this email before reaching the victim?
 203.0.113.5
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 3 - What is the sender's email address?
 finance@business-finance.com
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 4 - What is the 'Reply-To' email address specified in the email?
 support@business-finance.com
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 5 - What is the SPF (Sender Policy Framework) result for this email?
 Authentication-Results: spf=pass (domain business-finance.com designates 45.67.89.10 as permitted sender)
 
 answer: pass
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 6 - What is the domain used in the phishing URL inside the email?
 └─$ grep -Eo 'https?://[^"]+' email.eml
 
 https://secure.business-finance.com/invoice/details/view/INV2025-0987/payment
-
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 7 - What is the fake company name used in the email?
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ grep -Ei 'From:|Return-Path:|X-Originating-|Organization|X-Organization' email.eml
@@ -46,8 +47,7 @@ X-Originating-IP: [45.67.89.10]
 X-Organization: Business Finance Ltd.
 X-Envelope-From: finance@business-finance.com
 From: "Finance Dept" <finance@business-finance.com>
-
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 8 - What is the name of the attachment included in the email?
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ grep -Ei 'Content-Type:|Content-Disposition:' email.eml
@@ -56,20 +56,18 @@ Content-Type: multipart/mixed; boundary="boundary123"
 Content-Type: text/html; charset="UTF-8"
 Content-Type: application/zip; name="Invoice_2025_Payment.zip"
 Content-Disposition: attachment; filename="Invoice_2025_Payment.zip"
-                                                                                                            
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 9 - What is the SHA-256 hash of the attachment?
 ┌──(kali㉿kali)-[~/Downloads/phishnet]
 └─$ sha256sum out/Invoice_2025_Payment.zip
 
 8379c41239e9af845b2ab6c27a7509ae8804d7d73e455c800a551b22ba25bb4a  out/Invoice_2025_Payment.zip
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 10 - What is the filename of the malicious file contained within the ZIP attachment?
 ┌──(root㉿kali)-[/home/kali/Desktop/Scripts]
 └─# strings Invoice_2025_Payment.zip
 
 invoice_document.pdf.bat
-
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 11 - Which MITRE ATT&CK techniques are associated with this attack?
 T1566.001
