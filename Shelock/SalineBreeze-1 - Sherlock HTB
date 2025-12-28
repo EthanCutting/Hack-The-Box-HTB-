@@ -88,50 +88,90 @@ This is a supporting technique, meaning it often enables:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 12 - On November 25th, 2024, TrendMicro published a blog post detailing the threat actor. What name does this blog primarily use to refer to the group?
+Earth Estries
 
+In its November 25th, 2024 blog post, Trend Micro primarily refers to the threat actor as Earth Estries.
 
+Why the different name?
+    - Security vendors often track the same threat actor under different names
+    - Trend Micro uses the “Earth” naming convention for China-nexus activity clusters
+    - Earth Estries = Salt Typhoon = GhostEmperor (same underlying actor, different vendor labels)
+    - This is very common in threat intelligence and part of why MITRE ATT&CK mappings are so useful—they help unify naming across vendors.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 13 - The blog post identifies additional malware attributed to the threat actor. Which malware do they describe as a 'multi-modular backdoor...using a custom protocol protected by Transport Layer Security'
+The malware described in the Trend Micro (Nov 25, 2024) blog as a “multi-modular backdoor … using a custom protocol protected by Transport Layer Security (TLS)” is:
 
+GhostSpider
 
-
+Trend Micro attributes GhostSpider to the same activity cluster it calls Earth Estries (also known as Salt Typhoon), highlighting its modular design and encrypted custom C2 communications over TLS.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 14 - Most of the domains the malware communicates with have a .com top-level domain. One uses a .dev TLD. What is the full domain name for the .dev TLD?
+The full domain name using the .dev top-level domain is:
 
+telcom.grishamarkovgf8936.workers.dev
+
+This domain stands out because most of the malware’s C2 infrastructure uses .com domains, while this one leverages Cloudflare Workers (workers.dev), likely to blend in with legitimate developer traffic and evade detection.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 15  - What is the filename for the first GET request to the C&C server used by the malware?
 
-
-
+index.php
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 16 - On September 30th, 2021, a blog post was released on Securelist by Kaspersky. What was the threat actor's name at that time?
+On September 30th, 2021, the Kaspersky Securelist blog referred to the threat actor as:
 
+GhostEmperor
 
+At that time, Kaspersky tracked the activity under the name GhostEmperor, which was later correlated by the wider security community with the group now known as Salt Typhoon (and Earth Estries in Trend Micro reporting).
+This kind of multiple-name attribution across vendors is very common in threat intelligence and is exactly why MITRE ATT&CK mappings are so useful for tying everything together.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 17 - What is the name of the malware that this article focuses on?
+The Kaspersky Securelist article (September 30th, 2021) focuses on the malware named:
 
+Demodex
+
+Demodex is a kernel-mode rootkit/backdoor, and it was the centerpiece of Kaspersky’s analysis of the threat actor they tracked at the time as GhostEmperor.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 18 - What type of malware is the above malware?
+The malware Demodex is a:
 
+Kernel-mode rootkit
 
+Explanation:
+    - Demodex operates at the kernel level, giving it very high privileges
+    - It can hide processes, files, services, and network activity
+    - It uses IOCTL codes to manipulate system internals and evade detection
+    - This makes it well-suited for stealthy, long-term espionage, especially on critical infrastructure systems
+Because of these capabilities, Demodex is classified as a kernel-mode rootkit/backdoor, which is one of the most stealthy and dangerous types of malware.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 19 - The first stage consists of a malicious PowerShell dropper. What type of encryption is used to obfuscate the code?
+The malicious PowerShell dropper uses:
 
+AES (Advanced Encryption Standard) encryption
 
+Explanation:
+    - The PowerShell script is AES-encrypted to obfuscate its contents
+    - It is decrypted at runtime before executing the next stage
+    - This helps evade static analysis and signature-based detection
+AES is commonly used in advanced malware because it’s strong, fast, and widely supported, making it ideal for hiding payloads in scripts like PowerShell droppers.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task 20 - The malware uses Input/Output Control codes to perform various tasks related to hiding malicious artifacts. What is the IOCTL code used by the malware to hide its service from the list within the services.exe process address space?
 The malware uses Input/Output Control codes to perform various tasks related to hiding malicious artifacts. What is the IOCTL code used by the malware to hide its service from the list within the services.exe process address space?
+The IOCTL code used by the malware (Demodex) to hide its service from the list within the services.exe process address space is:
 
+0x220300
 
+Context:
+In the Kaspersky Securelist (30 Sept 2021) analysis, Demodex (a kernel-mode rootkit) uses specific IOCTL handlers to manipulate system structures and conceal its presence.
+The IOCTL 0x220300 is explicitly associated with removing/hiding the malicious service from service enumeration, preventing it from appearing in standard service listings.
 
 
 
