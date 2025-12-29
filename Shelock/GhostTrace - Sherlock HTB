@@ -3,30 +3,31 @@
 # Ghost Trace - Sherlock HTB
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ✅ Step 2: Install the tools you NEED
+# ✅ Install the tools you NEED
 sudo apt update
 sudo apt install python3-evtx regripper
 
 STEP 1: Install python-evtx (correct way on Kali)
-
 Because Kali uses an externally managed Python, do this cleanly:
-
-sudo apt update
-sudo apt install python3-venv python3-pip -y
-
-
+  sudo apt update
+  sudo apt install python3-venv python3-pip -y
 Create a virtual environment (recommended by Kali):
-
-python3 -m venv evtxenv
-source evtxenv/bin/activate
-
-
+  python3 -m venv evtxenv
+  source evtxenv/bin/activate
 Now install python-evtx inside the venv:
-
-pip install python-evtx
-
-
+  pip install python-evtx
 You should see no errors.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+🛡️ What “SOC” means in Sherlock labs
+A SOC analyst focuses on:
+  - Detecting attacks
+  - Investigating alerts
+  - Analyzing logs
+  - Reconstructing attack timelines
+  - Identifying attacker behavior and impact
+So a SOC-category Sherlock trains you in blue team / defensive skills, not exploitation.
 
 -------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------
