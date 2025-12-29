@@ -29,6 +29,16 @@ A SOC analyst focuses on:
   - Identifying attacker behavior and impact
 So a SOC-category Sherlock trains you in blue team / defensive skills, not exploitation.
 
+🔍 What you typically do in a SOC Sherlock
+You’ll work with things like:
+  - Windows Event Logs (Security, System, Sysmon)
+  - Authentication events (4624, 4768, 4769, etc.)
+  - Persistence mechanisms (services, scheduled tasks, registry)
+  - Credential access (LSASS access, DCSync, secrets)
+  - Lateral movement
+  - Command-and-control indicators
+  - Timeline reconstruction
+
 -------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------
 # 🧠 Task 1 - What is the name of the malicious phishing attachment downloaded by the user on Client02?
