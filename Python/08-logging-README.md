@@ -60,7 +60,3 @@ logging.basicConfig(
 - Log meaningful events
 
 ---
-
-## Summary
-
-Logging turns scripts into maintainable and auditable tools.
