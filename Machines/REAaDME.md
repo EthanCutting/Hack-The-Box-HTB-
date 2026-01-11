@@ -2,8 +2,6 @@
 
 This repository contains a full walkthrough of the **UnderPass** machine from **Hack The Box**, covering enumeration, exploitation, privilege escalation, and flag retrieval.
 
-> ⚠️ This walkthrough is for **educational purposes only** and is intended for use on platforms like Hack The Box where you have permission to test.
-
 ---
 
 ## 🎯 Target Information
