@@ -25,14 +25,15 @@ This lab is designed to help practice:
 ```bash
 sudo apt update
 sudo apt install openssh-server -y
-'''bash
 ---
 2️⃣ Start and Enable SSH
+```bash
 sudo systemctl start ssh
 sudo systemctl enable ssh
 
 ---
 3️⃣ Verify SSH Status
+```bash
 sudo systemctl status ssh
 
 ---
