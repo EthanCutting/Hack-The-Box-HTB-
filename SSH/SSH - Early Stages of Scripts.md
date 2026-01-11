@@ -17,59 +17,45 @@ This lab is designed to help practice:
 - Identifying brute-force vs password spray attacks
 - SOC-style alerting and reporting
 
----
-```markdown
 ## 🛠️ Phase 1: SSH Server Setup
-```markdown
+
 ### 1️⃣ Install SSH Server
+
 ```bash
 sudo apt update
 sudo apt install openssh-server -y
 
----
-```markdown
 2️⃣ Start and Enable SSH
-```bash
+
 sudo systemctl start ssh
 sudo systemctl enable ssh
 
----
-```markdown
 3️⃣ Verify SSH Status
-```bash
+
 sudo systemctl status ssh
 
----
-```markdown
 4️⃣ Create Test Users
+
 sudo adduser testuser
 sudo adduser adminuser
 
----
-```markdown
 5️⃣ Monitor SSH Logs
+
 sudo tail -f /var/log/auth.log
 
----
-```markdown
-🧠 Phase 2: Log Collection & Transfer
 
+🧠 Phase 2: Log Collection & Transfer
 Sending logs to an analysis machine
 scp /tmp/auth.log kali@192.168.74.134:/home/kali/ssh_lab_logs.txt
 
 Retrieving logs from a target machine
 scp ethan@192.168.74.133:/var/log/auth.log ~/ssh_lab_logs.txt
 
-
----
-```markdown
 🧠 Phase 3: Analyze SSH Logs with Python
+
 The following Python script parses SSH authentication logs to detect failed login attempts, identify attacking IPs, classify attack types, and generate alerts.
 
----
-```markdown
 🐍 SSH Failed Login Detection Script
-
 #!/usr/bin/env python3
 import re
 import csv
@@ -141,10 +127,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-...
-----
-```markdown
 ▶️ Output
 === SSH Failed Login Summary ===
 192.168.74.134 -> 7 failures | Users: admin, user1, user2 | Type: Password spray
@@ -154,16 +136,10 @@ ALERT: 192.168.74.134 -> 7 failures | Password spray
 
 [i] Saved CSV report: ssh_alerts.csv
 
-
----
-```markdown
 🧠 Executable Script
 chmod +x ssh_detector.py
 ./ssh_detector.py
 
-
----
-```markdown
 🧠 SOC Fundamentals: Counting Patterns
 
 Key counting patterns used in SOC detections:
@@ -181,5 +157,8 @@ Time-bucket counting
 Mastering these patterns allows you to build almost any detection logic.
 
 
+### The 2 rules that fix everything
+- **Never do**: ```markdown above headings  
+- **Always do**: headings as normal text, and only wrap *actual code/commands* in ```bash / ```python blocks
 
-
+If you paste that into your README, you’ll get exactly: **white text/headers + gray co
