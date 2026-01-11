@@ -18,13 +18,14 @@ This lab is designed to help practice:
 - SOC-style alerting and reporting
 
 ---
-
+```markdown
 ## 🛠️ Phase 1: SSH Server Setup
-
+```markdown
 ### 1️⃣ Install SSH Server
 ```bash
 sudo apt update
 sudo apt install openssh-server -y
+```markdown
 ---
 2️⃣ Start and Enable SSH
 ```bash
