@@ -33,7 +33,7 @@ This Python script parses a raw `.eml` email file and extracts key indicators us
 `email.eml` is a sample phishing email used for analysis and testing.
 
 ---
-
+```python
 import email
 import re
 from email import policy
@@ -44,7 +44,7 @@ EML_FILE = "email.eml"
 with open(EML_FILE, "rb") as file:
     msg = email.message_from_binary_file(file, policy=policy.default)
 
-# Basic HEaders 
+# Basic headers
 results = {
     "From": msg["From"],
     "To": msg["To"],
@@ -52,37 +52,39 @@ results = {
     "Date": msg["Date"],
 }
 
-# Auhentication results
-auh_results = msg.get("Authentication-Results", "")
-results["SPF"] = "pass" if "spf=pass" in auh_results else "fail"
-results["DKIM"] = "pass" if "dkim=pass" in auh_results else "fail"
-results["DMARC"] = "pass" if "dmarc=pass" in auh_results else "fail"
+# Authentication results
+auth_results = msg.get("Authentication-Results", "")
+results["SPF"] = "pass" if "spf=pass" in auth_results else "fail"
+results["DKIM"] = "pass" if "dkim=pass" in auth_results else "fail"
+results["DMARC"] = "pass" if "dmarc=pass" in auth_results else "fail"
 
-# extract IPs
+# Extract IPs
 raw_headers = str(msg)
 ips = re.findall(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b', raw_headers)
-results["IPs"] = list(set(ips))  # Unique IPs
+results["IPs"] = list(set(ips))
 
-# extract urls from body
+# Extract URLs from body
 urls = []
 for part in msg.walk():
     if part.get_content_type() == "text/plain":
         body = part.get_content()
         urls.extend(re.findall(r'http[s]?://\S+', body))
 
-results["URLs"] = list(set(urls))  # Unique URLs
+results["URLs"] = list(set(urls))
 
-# attachments
+# Attachments
 attachments = []
 for part in msg.iter_attachments():
     attachments.append(part.get_filename())
 
 results["Attachments"] = attachments
 
-# output 
+# Output
 print("\n=== Email Triage Results ===")
 for k, v in results.items():
     print(f"{k.upper():15}: {v}")
+
+
 ---
 
 ## ▶️ Usage
