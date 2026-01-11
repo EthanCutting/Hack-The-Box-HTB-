@@ -25,5 +25,4 @@ import helpers
 
 ---
 
-## 🏁 Summary
-Modules keep code organized and powerful.
+
