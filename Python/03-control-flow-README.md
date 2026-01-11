@@ -37,6 +37,3 @@ while retries < 3:
 ```
 
 ---
-
-## 🏁 Summary
-Control flow allows scripts to react dynamically instead of running line-by-line.
