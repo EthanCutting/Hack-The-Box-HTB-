@@ -19,6 +19,3 @@ def scan_port(port):
 - Return values
 
 ---
-
-## 🏁 Summary
-Good functions make scripts modular, readable, and reusable.
