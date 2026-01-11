@@ -33,25 +33,9 @@ This Python script parses a raw `.eml` email file and extracts key indicators us
 
 From the script directory, run:
 
-```bash
 python3 EmailTriageScript.py
 
 The script outputs a structured email triage report directly to the terminal.
-
----
-🧪 Example Output
-=== Email Triage Results ===
-FROM           : Finance Dept <finance@business-finance.com>
-TO             : accounts@globalaccounting.com
-SUBJECT        : Urgent: Invoice Payment Required - Overdue Notice
-DATE           : Mon, 26 Feb 2025 10:15:00 +0000
-SPF            : pass
-DKIM           : pass
-DMARC          : pass
-IPS            : ['45.67.89.10', '198.51.100.45']
-URLS           : ['https://secure.business-finance.com/invoice/details/view/...']
-ATTACHMENTS    : ['Invoice_2025_Payment.zip']
-
 
 ---
 🚩 Blue Team Observations
@@ -123,6 +107,19 @@ for k, v in results.items():
 
 ---
 
+---
+🧪 Example Output
+=== Email Triage Results ===
+FROM           : Finance Dept <finance@business-finance.com>
+TO             : accounts@globalaccounting.com
+SUBJECT        : Urgent: Invoice Payment Required - Overdue Notice
+DATE           : Mon, 26 Feb 2025 10:15:00 +0000
+SPF            : pass
+DKIM           : pass
+DMARC          : pass
+IPS            : ['45.67.89.10', '198.51.100.45']
+URLS           : ['https://secure.business-finance.com/invoice/details/view/...']
+ATTACHMENTS    : ['Invoice_2025_Payment.zip']
 
 
 
