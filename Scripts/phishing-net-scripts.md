@@ -29,6 +29,42 @@ This Python script parses a raw `.eml` email file and extracts key indicators us
 
 ---
 
+## ▶️ Usage
+
+From the script directory, run:
+
+```bash
+python3 EmailTriageScript.py
+
+The script outputs a structured email triage report directly to the terminal.
+
+---
+🧪 Example Output
+=== Email Triage Results ===
+FROM           : Finance Dept <finance@business-finance.com>
+TO             : accounts@globalaccounting.com
+SUBJECT        : Urgent: Invoice Payment Required - Overdue Notice
+DATE           : Mon, 26 Feb 2025 10:15:00 +0000
+SPF            : pass
+DKIM           : pass
+DMARC          : pass
+IPS            : ['45.67.89.10', '198.51.100.45']
+URLS           : ['https://secure.business-finance.com/invoice/details/view/...']
+ATTACHMENTS    : ['Invoice_2025_Payment.zip']
+
+
+---
+🚩 Blue Team Observations
+
+Financial urgency language is a common phishing tactic. ZIP file attachments represent a high-risk indicator. Passing SPF, DKIM, and DMARC does not guarantee email legitimacy, and header IP analysis remains critical during investigations.
+
+---
+🎯 Goals of This Script
+
+The purpose of this script is to support HTB Sherlock phishing investigations, practice SOC-style email triage workflows, improve blue team Python scripting skills, and automate repetitive investigation tasks.
+
+---
+
 `EmailTriageScript.py` is the Python email triage and forensics script.  
 `email.eml` is a sample phishing email used for analysis and testing.
 
@@ -89,42 +125,5 @@ for k, v in results.items():
 
 
 
----
-
-## ▶️ Usage
-
-From the script directory, run:
-
-```bash
-python3 EmailTriageScript.py
-
-The script outputs a structured email triage report directly to the terminal.
-
----
-🧪 Example Output
-=== Email Triage Results ===
-FROM           : Finance Dept <finance@business-finance.com>
-TO             : accounts@globalaccounting.com
-SUBJECT        : Urgent: Invoice Payment Required - Overdue Notice
-DATE           : Mon, 26 Feb 2025 10:15:00 +0000
-SPF            : pass
-DKIM           : pass
-DMARC          : pass
-IPS            : ['45.67.89.10', '198.51.100.45']
-URLS           : ['https://secure.business-finance.com/invoice/details/view/...']
-ATTACHMENTS    : ['Invoice_2025_Payment.zip']
-
-
----
-🚩 Blue Team Observations
-
-Financial urgency language is a common phishing tactic. ZIP file attachments represent a high-risk indicator. Passing SPF, DKIM, and DMARC does not guarantee email legitimacy, and header IP analysis remains critical during investigations.
-
----
-🎯 Goals of This Script
-
-The purpose of this script is to support HTB Sherlock phishing investigations, practice SOC-style email triage workflows, improve blue team Python scripting skills, and automate repetitive investigation tasks.
-
----
 
 
