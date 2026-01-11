@@ -25,7 +25,7 @@ This lab is designed to help practice:
 ```bash
 sudo apt update
 sudo apt install openssh-server -y
-
+'''bash
 ---
 2️⃣ Start and Enable SSH
 sudo systemctl start ssh
