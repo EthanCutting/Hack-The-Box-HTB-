@@ -35,7 +35,3 @@ python scan.py -t 192.168.1.10 -p 22
 ```
 
 ---
-
-## Summary
-
-argparse separates scripts from professional tools.
