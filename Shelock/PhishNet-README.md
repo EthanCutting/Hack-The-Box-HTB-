@@ -172,6 +172,3 @@ T1566.001 – Phishing: Spearphishing Attachment
 
 ---
 
-## ⚠️ Disclaimer
-
-This analysis was performed in a **controlled, legal environment** as part of a Hack The Box Sherlock challenge and is intended for **educational purposes only**.
