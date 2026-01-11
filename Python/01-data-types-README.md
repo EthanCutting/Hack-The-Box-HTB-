@@ -87,7 +87,3 @@ user = {
 Essential for structured data and scripting.
 
 ---
-
-## 🏁 Summary
-
-Mastering Python data types gives you control over your scripts and logic.
