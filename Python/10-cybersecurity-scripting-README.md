@@ -37,7 +37,3 @@ if failed_attempts > 5:
 - Handle edge cases
 
 ---
-
-## Summary
-
-Python scripting is a core defensive security skill.
