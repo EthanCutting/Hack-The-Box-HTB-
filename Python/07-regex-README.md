@@ -20,5 +20,3 @@ re.search(r"error", log_line)
 
 ---
 
-## 🏁 Summary
-Regex is essential for text-heavy scripting.
