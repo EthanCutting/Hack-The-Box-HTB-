@@ -22,5 +22,4 @@ except ValueError:
 
 ---
 
-## 🏁 Summary
-Handling errors makes scripts reliable and production-ready.
+
