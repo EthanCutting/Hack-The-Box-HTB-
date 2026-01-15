@@ -66,3 +66,38 @@ if __name__ == "__main__":
     admin_ips = get_admin_ips(access_log)
     print(f"[+] Found admin access from IPs: {admin_ips}")
     find_users_by_ips(DB_FILE, admin_ips)
+
+
+Task 3
+Identify the Malicious Post ID
+
+Goal:
+Find the post_id of the malicious post made by the contractor.
+
+Script Used: find_post_id.py
+# basic script to find the user post id only
+import sqlite3
+
+db = sqlite3.connect('phpbb.sqlite3')
+cur = db.cursor()
+
+username = input("Username:")
+
+cur.execute("SELECT user_id FROM phpbb_users WHERE username = ?", (username,))
+user_id = cur.fetchone()[0]
+
+cur.execute("SELECT post_id FROM phpbb_posts WHERE poster_id = ?", (user_id,))
+for (post_id,) in cur.fetchall():
+    print("POST ID: ", post_id)
+
+db.close()
+
+How It Works
+
+Takes a username as input
+
+Retrieves the corresponding user_id
+
+Queries the phpbb_posts table
+
+Outputs all post_id values created by that user
