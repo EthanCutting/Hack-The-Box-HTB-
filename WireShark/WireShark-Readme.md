@@ -205,26 +205,6 @@ Always document findings when working with PCAPs.
 
 ---
 
-## 📚 Learning Goals
-
-* Understand TCP/IP and application protocols
-* Become comfortable with filters
-* Analyze malicious traffic confidently
-* Apply Wireshark in blue-team investigations
-* Build a strong network analysis foundation
-
----
-
-## 🧪 Labs & Practice Ideas
-
-* Capture HTTP vs HTTPS traffic
-* Analyze DNS queries during browsing
-* Investigate malware PCAPs
-* Identify failed logins or brute-force attempts
-* Track file downloads over HTTP
-
----
-
 ## 🏁 Conclusion
 
 Wireshark is an essential tool for anyone working in **networking or cybersecurity**. Mastering it provides deep insight into how networks operate and how attacks move through them.
@@ -235,3 +215,4 @@ This repository serves as a reference and learning log as I continue developing 
 
 📌 *Author:* Ethan Cutting
 📌 *Focus:* Cybersecurity | Blue Team | Network Analysis
+
