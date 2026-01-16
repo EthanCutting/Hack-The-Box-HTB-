@@ -196,19 +196,3 @@ Understanding malware:
 
 ---
 
-## Final Thoughts
-
-Malware evolves constantly.  
-Attackers adapt.  
-Defenders must stay informed.
-
-Cybersecurity is not about memorizing tools — it’s about understanding **how threats work**.
-
----
-
-### 📚 Next Topics to Learn
-- Malware kill chain
-- Indicators of Compromise (IOCs)
-- Log analysis
-- Sandboxing and malware analysis basics
-- MITRE ATT&CK framework
