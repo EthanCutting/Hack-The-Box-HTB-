@@ -1,4 +1,3 @@
-
 """"
     PoryScanner 0.1
     By Ethan PP Cuting
@@ -60,8 +59,8 @@ TOP_100_PORTS = [
     9042, 9200, 9418, 9999, 10000, 11211, 27017
 ]
 #-------------------------------------------------------------------------------------------------------------------------------
-# Main Menu
-def main_menu():
+# Welcome Banner
+def welcome_banner():
     print(rf"""{CYAN}
         ██████╗  ██████╗ ██████╗ ██╗   ██╗
         ██╔══██╗██╔═══██╗██╔══██╗╚██╗ ██╔╝
@@ -70,14 +69,18 @@ def main_menu():
         ██║     ╚██████╔╝██║  ██║   ██║   
         ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
 
-        Welcome, friend 
-        Ready to scan some ports today?
+        Welcome, ANYONE, to {TOOL_NAME} v{VERSION}! 
+        Ready todo some scanning?, if not leave me alone... {MAGENTA}:-){CYAN}
     {RESET}""")
+#-------------------------------------------------------------------------------------------------------------------------------
+# Main Menu
+def main_menu():
+    welcome_banner()
     # Display menu options
     print(f"\n{CYAN}=== {TOOL_NAME} V{VERSION} ==={RESET}") #
     print(f"{YELLOW}1.{RESET} INFO")
-    print(f"{YELLOW}2.{RESET} QUICK SCAN")
-    print(f"{YELLOW}3.{RESET} FULL SCAN")
+    print(f"{YELLOW}2.{RESET} QUICK SCAN (top ports)")
+    print(f"{YELLOW}3.{RESET} FULL SCAN (custom range)")
     print(f"{YELLOW}4.{RESET} EXIT")
     choice = input(f"{GREEN}Select an option:{RESET}")
     # Handle user choice
@@ -95,18 +98,7 @@ def main_menu():
         print(f"{RED}[-] Invalid choice. Please try again.{RESET}")
         input("Press Enter to continue...")
 #-------------------------------------------------------------------------------------------------------------------------------
-def welcome_banner():
-    print(rf"""{CYAN}
-        ██████╗  ██████╗ ██████╗ ██╗   ██╗
-        ██╔══██╗██╔═══██╗██╔══██╗╚██╗ ██╔╝
-        ██████╔╝██║   ██║██████╔╝ ╚████╔╝ 
-        ██╔═══╝ ██║   ██║██╔══██╗  ╚██╔╝  
-        ██║     ╚██████╔╝██║  ██║   ██║   
-        ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
 
-        Welcome, friend 
-        Ready to scan some ports today?
-    {RESET}""")
 #-------------------------------------------------------------------------------------------------------------------------------
 # Functions for each menu option
 def INFO_Option():
@@ -120,28 +112,67 @@ def INFO_Option():
     print(f"{CYAN} ==================================================================================================\n{RESET}")
     # Additional info
     print(f"""{YELLOW}
-          INFO: This is a basic port scanner script.
-          It allows you to scan a range of ports on a specified IP address.{RESET}
-            """)
+          INFO:
+            PortyScanner is a TCP-based port scanning tool designed for learning,
+            testing, and basic network reconnaissance.
+
+            WHAT THIS SCRIPT CAN DO:
+            - Scan a target IPv4 address for open TCP ports
+            - Perform a QUICK SCAN using common ports (Top Ports list)
+            - Perform a FULL SCAN on a custom user-defined port range
+            - Identify likely services running on open ports (HTTP, SSH, FTP, etc.)
+            - Attempt banner grabbing to collect service/version information
+            - Display scan results in a clean table format
+            - Save discovered open ports and banners to a file (open_ports.txt)
+            - Measure and display scan execution time
+
+            HOW IT WORKS:
+            - Uses TCP sockets (AF_INET + SOCK_STREAM) to test ports
+            - Attempts a TCP connection to each port using connect_ex()
+            - A return value of 0 means the port is OPEN
+            - Non-zero return values indicate CLOSED or FILTERED ports
+            - QUICK SCAN uses multithreading for faster results
+            - FULL SCAN checks ports sequentially for full control
+            - Banner grabbing attempts to read service responses after connection
+
+            NOTE:
+            Some services may not return banners unless protocol-specific
+            communication is used. 
+
+          {RESET}""")
     print(f"{CYAN} ===================================================================================================\n{RESET}")
 
     input("Press Enter to return to the main menu...")
 #-------------------------------------------------------------------------------------------------------------------------------
-def T_S_Ports(ip, port, timeout=0.3):
+def tcp_port(ip, port, timeout=0.3):
+    service = COMMON_SERVICES.get(port, 'Unknown Service')
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(timeout) # Set socket timeout
+
+    t0 = time.perf_counter()
     try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(1)
         result = s.connect_ex((ip, port))
-        s.close()
+        rtt_ms = (time.perf_counter() - t0) * 1000  # RTT in milliseconds
 
         if result == 0:
-            service = COMMON_SERVICES.get(port, 'Unknown Service')
             banner = grab_banner(ip, port)
-            return (port, service, banner)
-    except Exception:
-        return None
+            return (port, "open", "syn-ack", round(rtt_ms, 2), service, banner)
+
+        # common CLOSED code on many systems
+        if result == 111:
+            return (port, "closed", "rst", round(rtt_ms, 2), service, "N/A")
     
-    return None
+        return (port, "close/filtered", f"err-{result}", round(rtt_ms, 2), service, "N/A")
+    except socket.timeout:
+        rtt_ms = (time.perf_counter() - t0) * 1000  # RTT in milliseconds
+        return (port, "filtered", "timeout", round(rtt_ms, 2), service, "N/A")
+    
+    except Exception as e:
+        rtt_ms = (time.perf_counter() - t0) * 1000
+        return (port, "error", type(e).__name__, round(rtt_ms, 2), service, "N/A")
+    finally:
+        s.close()
 #-------------------------------------------------------------------------------------------------------------------------------
 # Quick Scan Function
 def QUICK_Option():
@@ -159,34 +190,29 @@ def QUICK_Option():
     workers = 200 # Number of threads for scanning
     timeout = 0.3 # Timeout for socket connections
 
+    results = []
+
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = [executor.submit(T_S_Ports, ipaddress, port, timeout) for port in TOP_100_PORTS]
+        futures = [executor.submit(tcp_port, ipaddress, port, timeout) for port in TOP_100_PORTS]
 
         for f in  as_completed(futures):
-            result = f.result()
-            if result is not None:
-                open_ports.append(result)
-                print(f"Found open port: {result}")
+            results.append(f.result())
 
-    # OUTPUT 
-    if open_ports:
-        print("PORT   SERVICE   VERION|BANNER") # Header
-        print("-" * 60) # Separator line
+    open_results = [res for res in results if res[1] == "open"]
 
+    if open_results:
         rows = []
-
-        for port, service, banner in open_ports:
+        for port, state, reason, rtt, service, banner in sorted(open_results, key=lambda x: x[0]):
             version = banner.splitlines()[0] if banner else "UNKNOWN"
-            rows.append([port, service, version])
-        print(tabulate(rows, headers=[
-                "PORT", "SERVICE", "VERSION|BANNER"], tablefmt="git"))
+            rows.append([port, state, reason, f"{rtt} ms", service, version])
+        
+        print(tabulate(rows, headers=["PORT", "STATE", "REASON", "RTT", "SERVICE", "VERSION|BANNER"], tablefmt="git"))
 
-        end = time.time() # End time
-        print(f"{GREEN}[+] Scan completed in {end - start:.2f} seconds.{RESET}") # Print scan duration
 
         # save open port to a file 
         with open("open_ports.txt", "w") as file:
-            for port, service, banner in open_ports: # Write open ports to file
+            for port, state, reason, rtt,service, banner in sorted(open_results, key=lambda x: x[0]): # write open ports to file
+                first_line = banner.splitlines()[0] if banner else "UNKNOWN" # Get first line of banner
                 file.write(f"Port: {port}, Service: {service}, Banner: {banner}\n") # Save open ports to file
         print(f"{GREEN}[+] Open ports saved to open_ports.txt{RESET}")
     else:
@@ -224,47 +250,40 @@ def FULL_Option():
     
     open_ports = []  # List to hold open ports
 
-    # Scan ports in the specified range
-    print(f"Scanning ports from {first_port} to {end_port} on {ipaddress}...")
-    for port in range(first_port, end_port + 1):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   # Create a TCP socket
-        sock.settimeout(1) # Set timeout for socket
-        
-        result = sock.connect_ex((ipaddress, port)) # Attempt to connect to the port
-        print(f"{CYAN}\n Scanning complete.\n{RESET}") # Completion message , \n \n for spacing
-        print(f"Scanning port {port}/{end_port}", end="\r") 
-        # Check if the port is open
-        if result == 0:
-            service = COMMON_SERVICES.get(port, 'Unknown Service') # Get service name
-            banner = grab_banner(ipaddress, port)
-            open_ports.append((port, service, banner))  # Add open port to the list
+    # 
+    workers = 300 # Number of threads for scanning
+    timeout = 0.3 # Timeout for socket connections
 
-        sock.close() # Close the socket
+    ports = range(first_port, end_port + 1)
 
-        # print(f"{CYAN}\n Scanning complete.\n{RESET}") # Completion message , \n \n for spacing
+    results = []
 
-    if open_ports:
-        print("PORT   SERVICE   VERION|BANNER") # Header
-        print("-" * 60) # Separator line
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = [executor.submit(tcp_port, ipaddress, port, timeout) for port in ports]
 
+        for f in  as_completed(futures):
+            results.append(f.result())
+
+    open_results = [res for res in results if res[1] == "open"]
+
+    if open_results:
         rows = []
-
-        for port, service, banner in open_ports:
+        for port, state, reason, rtt, service, banner in sorted(open_results, key=lambda x: x[0]):
             version = banner.splitlines()[0] if banner else "UNKNOWN"
-            rows.append([port, service, version])
-        print(tabulate(rows, headers=["PORT", "SERVICE", "VERSION|BANNER"], tablefmt="git"))
-
-        end = time.time() # End time
-        print(f"{GREEN}[+] Scan completed in {end - start:.2f} seconds.{RESET}") # Print scan duration
+            rows.append([port, state, reason, f"{rtt} ms", service, version])
         
-        # Save open ports to a file
-        with open("open_ports.txt", "w") as file: 
-            for port, service, banner in open_ports: # Write open ports to file
+        print(tabulate(rows, headers=["PORT", "STATE", "REASON", "RTT", "SERVICE", "VERSION|BANNER"], tablefmt="git"))
+
+
+        # save open port to a file 
+        with open("open_ports.txt", "w") as file:
+            for port, state, reason, rtt,service, banner in sorted(open_results, key=lambda x: x[0]): # write open ports to file
+                first_line = banner.splitlines()[0] if banner else "UNKNOWN" # Get first line of banner
                 file.write(f"Port: {port}, Service: {service}, Banner: {banner}\n") # Save open ports to file
         print(f"{GREEN}[+] Open ports saved to open_ports.txt{RESET}")
     else:
         print(f"{RED}[-] No open ports found.{RESET}")
-
+    
     input("Press Enter to return to the main menu...")
 #-------------------------------------------------------------------------------------------------------------------------------
 # Exit Function
@@ -277,3 +296,27 @@ if __name__ == "__main__":
     while True:
         main_menu()
 
+"""
+    OPEN PORTS FOR TESTING:
+    python3 - << 'EOF'
+    import socket
+    s = socket.socket()
+    s.bind(("0.0.0.0", 4444))
+    s.listen(1)
+    print("Listening on port 4444")
+    conn, addr = s.accept()
+    EOF
+
+    python3 - << 'EOF'
+    import socket
+    s = socket.socket()
+    s.bind(("0.0.0.0", 8080))
+    s.listen(1)
+    print("Listening on port 8080")
+    conn, addr = s.accept()
+    EOF
+
+    python3 -m http.server 8000
+
+    sudo systemctl start ssh
+"""
