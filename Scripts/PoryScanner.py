@@ -145,12 +145,12 @@ def INFO_Option():
     input("Press Enter to return to the main menu...")
 #-------------------------------------------------------------------------------------------------------------------------------
 def tcp_port(ip, port, timeout=0.3):
-    service = COMMON_SERVICES.get(port, 'Unknown Service')
+    service = COMMON_SERVICES.get(port, 'Unknown Service') # GUESSING service based on common ports
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(timeout) # Set socket timeout
 
-    t0 = time.perf_counter()
+    t0 = time.perf_counter() # high precision timer to calculate RTT
     try:
         result = s.connect_ex((ip, port))
         rtt_ms = (time.perf_counter() - t0) * 1000  # RTT in milliseconds
