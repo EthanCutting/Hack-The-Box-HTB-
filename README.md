@@ -8,7 +8,7 @@ The focus of this repo is **practical, real-world security skills**, including b
 
 ## 📁 Repository Structure
 
-### 🔍 `Sherlock/`
+### `Sherlock/`
 Blue Team investigation work for **HTB Sherlock challenges**.
 - Log analysis
 - Email forensics
@@ -21,7 +21,7 @@ These scripts are designed to assist with **SOC-style triage and analysis**, not
 
 ---
 
-### ⚙️ `Scripts/`
+### `Scripts/`
 Custom security scripts written in **Python and Bash**, focused on:
 - Security automation
 - Blue team tooling (email triage, log parsing, IOC extraction)
@@ -33,7 +33,7 @@ Scripts here are built with a **defender mindset**, even when used in offensive 
 
 ---
 
-### 🖥️ `Machines/`
+### `Machines/`
 Notes, commands, and methodology used while working through **HTB Machines**.
 - Enumeration steps
 - Exploitation paths
