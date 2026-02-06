@@ -2,6 +2,7 @@
     PoryScanner 0.1
     By Ethan PP Cuting
 """
+import os
 import socket
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
@@ -9,6 +10,8 @@ start = time.time()
 from tabulate import tabulate
 from colorama import Fore, Style, init
 init(autoreset=True)
+import subprocess
+import platform
 #-------------------------------------------------------------------------------------------------------------------------------
 # Tool Information
 VERSION = "0.1"
@@ -69,8 +72,8 @@ def welcome_banner():
         ██║     ╚██████╔╝██║  ██║   ██║   
         ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
 
-        Welcome, ANYONE, to {TOOL_NAME} v{VERSION}! 
-        Ready todo some scanning?, if not leave me alone... {MAGENTA}:-){CYAN}
+        Welcome, to {TOOL_NAME} v{VERSION}! 
+        Ready to do some scanning?, if not leave me alone... {MAGENTA}:-){CYAN}
     {RESET}""")
 #-------------------------------------------------------------------------------------------------------------------------------
 # Main Menu
@@ -81,7 +84,8 @@ def main_menu():
     print(f"{YELLOW}1.{RESET} INFO")
     print(f"{YELLOW}2.{RESET} QUICK SCAN (top ports)")
     print(f"{YELLOW}3.{RESET} FULL SCAN (custom range)")
-    print(f"{YELLOW}4.{RESET} EXIT")
+    print(f"{YELLOW}4.{RESET} PING TEST")
+    print(f"{YELLOW}5.{RESET} EXIT")
     choice = input(f"{GREEN}Select an option:{RESET}")
     # Handle user choice
     if choice == '1':
@@ -91,6 +95,8 @@ def main_menu():
     elif choice == '3':
         FULL_Option()
     elif choice == '4':
+        PING_TEST()
+    elif choice == '5':
         EXIT_Option()
         exit()
     # Handle invalid choice
@@ -214,7 +220,7 @@ def QUICK_Option():
             for port, state, reason, rtt,service, banner in sorted(open_results, key=lambda x: x[0]): # write open ports to file
                 first_line = banner.splitlines()[0] if banner else "UNKNOWN" # Get first line of banner
                 file.write(f"Port: {port}, Service: {service}, Banner: {banner}\n") # Save open ports to file
-        print(f"{GREEN}[+] Open ports saved to open_ports.txt{RESET}")
+        print(f"{GREEN}[+] Saved to: {os.path.abspath('open_ports.txt')}{RESET}")
     else:
         print(f"{RED}[-] No open ports found.{RESET}")
     
@@ -250,7 +256,6 @@ def FULL_Option():
     
     open_ports = []  # List to hold open ports
 
-    # 
     workers = 300 # Number of threads for scanning
     timeout = 0.3 # Timeout for socket connections
 
@@ -280,11 +285,50 @@ def FULL_Option():
             for port, state, reason, rtt,service, banner in sorted(open_results, key=lambda x: x[0]): # write open ports to file
                 first_line = banner.splitlines()[0] if banner else "UNKNOWN" # Get first line of banner
                 file.write(f"Port: {port}, Service: {service}, Banner: {banner}\n") # Save open ports to file
-        print(f"{GREEN}[+] Open ports saved to open_ports.txt{RESET}")
+        print(f"{GREEN}[+] Saved to: {os.path.abspath('open_ports.txt')}{RESET}")
     else:
         print(f"{RED}[-] No open ports found.{RESET}")
     
     input("Press Enter to return to the main menu...")
+#-------------------------------------------------------------------------------------------------------------------------------
+def ping_helper(host):
+    param = '-n' if platform.system().lower() == 'windows' else '-c'
+    command = ['ping', param, '1', host]
+
+    try:
+        subprocess.run(command, capture_output=True, text=True, check=True)
+        return (host, "UP")
+    except subprocess.CalledProcessError:
+        return (host, "DOWN")
+    except Exception as e:
+        return (host, "ERROR")
+#-------------------------------------------------------------------------------------------------------------------------------
+def PING_TEST():
+    print(f"{CYAN}=== PING TEST ==={RESET}")
+    target = input(f"{GREEN}Enter IP address or hostname to ping: {RESET}").split(",")
+
+    target = [t.strip() for t in target] # Strip whitespace from targets
+    workers = min(20, len(target)) # Limit threads to 20 or number of targets
+
+    print(f"\n{GREEN}Pinging {target}...{RESET}\n")
+
+    results = []
+
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = [executor.submit(ping_helper, t) for t in target]
+
+        for f in as_completed(futures):
+            results.append(f.result())
+    
+    # display results
+    for host, status in results:
+        if status == "UP":
+            print(f"{GREEN}[+] {host} is UP{RESET}")
+        elif status == "DOWN":
+            print(f"{RED}[-] {host} is DOWN{RESET}")
+        else:
+            print(f"{YELLOW}[!] {host} ping ERROR: {status}{RESET}")
+    input("\nPress Enter to return to the main menu...")
 #-------------------------------------------------------------------------------------------------------------------------------
 # Exit Function
 def EXIT_Option():
