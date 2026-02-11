@@ -1,5 +1,0 @@
-Port 53/tcp: open (syn-ack), RTT: 1.09ms, Service: DNS
-Port 80/tcp: open (syn-ack), RTT: 1.11ms, Service: HTTP
-Port 139/tcp: open (syn-ack), RTT: 6.52ms, Service: Unknown Service
-Port 443/tcp: open (syn-ack), RTT: 1.65ms, Service: HTTPS
-Port 445/tcp: open (syn-ack), RTT: 1.66ms, Service: Unknown Service
