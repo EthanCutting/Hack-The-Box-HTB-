@@ -1,0 +1,287 @@
+{"timestamp": "2026-02-08T00:06:17", "event": "scan_end", "data": {"mode": "full", "target": "10.129.238.31", "start_port": 1, "end_port": 65000, "total": 65000, "open_count": 2, "open_ports": [22, 80]}}
+{"timestamp": "2026-02-08T00:06:37", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T00:07:09", "event": "scan_start", "data": {"mode": "full", "target": "10.129.238.31", "start_port": 1, "end_port": 30000}}
+{"timestamp": "2026-02-08T00:08:57", "event": "scan_end", "data": {"mode": "full", "target": "10.129.238.31", "start_port": 1, "end_port": 30000, "total": 30000, "open_count": 2, "open_ports": [22, 80]}}
+{"timestamp": "2026-02-08T00:09:03", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T00:20:34", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T00:43:51", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T00:43:51", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T00:43:54", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T00:43:57", "event": "scan_start", "data": {"mode": "quick", "target": ""}}
+{"timestamp": "2026-02-08T00:58:10", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T00:58:41", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T00:58:41", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T00:58:56", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T00:59:02", "event": "ping_test_start", "data": {"targets": ["192.168.1.1"]}}
+{"timestamp": "2026-02-08T00:59:02", "event": "ping_end", "data": {"up": 1, "down": 0, "error": 0, "hosts": [{"host": "192.168.1.1", "status": "UP"}]}}
+{"timestamp": "2026-02-08T01:02:35", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:03:28", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T01:03:32", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T01:03:33", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T01:03:35", "event": "menu_choice", "data": {"choice": "7"}}
+{"timestamp": "2026-02-08T01:04:06", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:04:13", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:04:17", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T01:04:34", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T01:04:42", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T01:04:42", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T01:04:53", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T01:09:44", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:09:44", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:09:44", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:11:37", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T01:11:37", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T01:11:42", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T01:11:45", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T01:11:56", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T01:12:01", "event": "scan_start", "data": {"mode": "full", "target": "192.168.1.1", "start_port": 1, "end_port": 10}}
+{"timestamp": "2026-02-08T01:12:03", "event": "scan_end", "data": {"mode": "full", "target": "192.168.1.1", "start_port": 1, "end_port": 10, "total": 10, "open_count": 0, "open_ports": []}}
+{"timestamp": "2026-02-08T01:12:08", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T01:12:10", "event": "ping_test_start", "data": {"targets": ["192.168.1.1"]}}
+{"timestamp": "2026-02-08T01:12:10", "event": "ping_end", "data": {"up": 1, "down": 0, "error": 0, "hosts": [{"host": "192.168.1.1", "status": "UP"}]}}
+{"timestamp": "2026-02-08T01:13:26", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T01:24:09", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T01:24:43", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T01:24:47", "event": "ping_input_failed", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T01:24:49", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T01:24:59", "event": "ping_test_start", "data": {"targets": ["192.168.1.1"]}}
+{"timestamp": "2026-02-08T01:24:59", "event": "ping_end", "data": {"up": 1, "down": 0, "error": 0, "hosts": [{"host": "192.168.1.1", "status": "UP"}]}}
+{"timestamp": "2026-02-08T01:26:30", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T01:26:32", "event": "ping_test_start", "data": {"targets": ["192.1"]}}
+{"timestamp": "2026-02-08T01:26:42", "event": "ping_end", "data": {"up": 0, "down": 1, "error": 0, "hosts": [{"host": "192.1", "status": "DOWN"}]}}
+{"timestamp": "2026-02-08T01:26:42", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T01:27:05", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:27:05", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:27:05", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:31:07", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:31:07", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:31:07", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:40:30", "event": "menu_choice", "data": {"choice": "│"}}
+{"timestamp": "2026-02-08T01:40:33", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T01:44:42", "event": "scan_start", "data": {"mode": "quick", "target": ""}}
+{"timestamp": "2026-02-08T01:44:44", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:44:44", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:44:44", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:50:15", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:50:15", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:50:15", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:50:45", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T01:50:45", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T01:50:48", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T01:50:51", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T01:51:31", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T01:51:35", "event": "ping_test_start", "data": {"targets": ["192.168.1.1"]}}
+{"timestamp": "2026-02-08T01:51:35", "event": "ping_end", "data": {"up": 1, "down": 0, "error": 0, "hosts": [{"host": "192.168.1.1", "status": "UP"}]}}
+{"timestamp": "2026-02-08T01:57:15", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:57:15", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:57:15", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:58:15", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T01:58:15", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T01:58:15", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:00:19", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T02:00:19", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:00:19", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:07:41", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T02:07:41", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:07:41", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:18:53", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T02:18:53", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T02:19:51", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T02:20:12", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T02:20:26", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T02:20:37", "event": "scan_start", "data": {"mode": "full", "target": "192.168.1.1", "start_port": 1, "end_port": 1000}}
+{"timestamp": "2026-02-08T02:20:49", "event": "scan_end", "data": {"mode": "full", "target": "192.168.1.1", "start_port": 1, "end_port": 1000, "total": 1000, "open_count": 5, "open_ports": [53, 80, 139, 443, 445]}}
+{"timestamp": "2026-02-08T02:20:51", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T02:20:51", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:20:51", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:21:07", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T02:21:07", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T02:21:10", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T02:21:13", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T02:21:25", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T02:21:30", "event": "scan_start", "data": {"mode": "full", "target": "192.168.1.1", "start_port": 1, "end_port": 1000}}
+{"timestamp": "2026-02-08T02:21:46", "event": "scan_end", "data": {"mode": "full", "target": "192.168.1.1", "start_port": 1, "end_port": 1000, "total": 1000, "open_count": 5, "open_ports": [53, 80, 139, 443, 445]}}
+{"timestamp": "2026-02-08T02:21:48", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T02:21:52", "event": "ping_test_start", "data": {"targets": ["192.168.1.1"]}}
+{"timestamp": "2026-02-08T02:21:52", "event": "ping_end", "data": {"up": 1, "down": 0, "error": 0, "hosts": [{"host": "192.168.1.1", "status": "UP"}]}}
+{"timestamp": "2026-02-08T02:21:54", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T02:21:55", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T02:21:57", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T02:21:58", "event": "scan_start", "data": {"mode": "quick", "target": ""}}
+{"timestamp": "2026-02-08T02:22:05", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T02:22:06", "event": "scan_start", "data": {"mode": "quick", "target": ""}}
+{"timestamp": "2026-02-08T02:37:31", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T02:37:32", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T02:37:32", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:37:32", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T02:37:38", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:04:11", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T03:04:16", "event": "invalid_ip_full_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T03:04:17", "event": "invalid_port_input", "data": {"target": "2"}}
+{"timestamp": "2026-02-08T03:04:22", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:04:29", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T03:04:31", "event": "invalid_ip_full_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T03:04:34", "event": "invalid_port_input", "data": {"target": ""}}
+{"timestamp": "2026-02-08T03:04:42", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T03:04:42", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T03:04:43", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:04:49", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:04:51", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:04:52", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:04:53", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:04:53", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:04:55", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T03:04:55", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:04:55", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:05:36", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:11:15", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:11:18", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T03:28:15", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 4, "open_ports": [53, 80, 139, 443]}}
+{"timestamp": "2026-02-08T03:28:22", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T03:28:23", "event": "invalid_ip_full_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T03:28:24", "event": "invalid_port_input", "data": {"target": ""}}
+{"timestamp": "2026-02-08T03:28:25", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:28:26", "event": "invalid_ip_quick_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T03:28:28", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T03:28:29", "event": "ping_input_failed", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T03:28:33", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T03:28:33", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:28:33", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:28:35", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:28:37", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:29:33", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:29:34", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T03:29:34", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T03:30:37", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:30:47", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T03:33:06", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 3, "open_ports": [53, 80, 139]}}
+{"timestamp": "2026-02-08T03:35:23", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T03:35:23", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T03:35:32", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:35:40", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T03:35:44", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 4, "open_ports": [53, 80, 139, 443]}}
+{"timestamp": "2026-02-08T03:35:47", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T03:36:00", "event": "port_out_of_range", "data": {"target": "192.168.74.131", "start_port": 1, "end_port": 65535}}
+{"timestamp": "2026-02-08T03:36:14", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T03:36:23", "event": "scan_start", "data": {"mode": "full", "target": "192.168.74.131", "start_port": 1, "end_port": 60000}}
+{"timestamp": "2026-02-08T03:36:48", "event": "scan_end", "data": {"mode": "full", "target": "192.168.74.131", "start_port": 1, "end_port": 60000, "total": 60000, "open_count": 2, "open_ports": [22, 8000]}}
+{"timestamp": "2026-02-08T03:37:05", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T03:37:11", "event": "ping_test_start", "data": {"targets": ["192.168.1.1"]}}
+{"timestamp": "2026-02-08T03:37:11", "event": "ping_end", "data": {"up": 1, "down": 0, "error": 0, "hosts": [{"host": "192.168.1.1", "status": "UP"}]}}
+{"timestamp": "2026-02-08T03:37:20", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T03:37:23", "event": "ping_test_start", "data": {"targets": ["192.168.1.2"]}}
+{"timestamp": "2026-02-08T03:37:26", "event": "ping_end", "data": {"up": 0, "down": 1, "error": 0, "hosts": [{"host": "192.168.1.2", "status": "DOWN"}]}}
+{"timestamp": "2026-02-08T03:37:33", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T03:37:33", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:37:33", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:45:11", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T03:45:14", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T03:45:14", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:45:14", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:45:18", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T03:45:18", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T03:45:34", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T03:45:34", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T03:45:54", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T03:45:54", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T03:45:58", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:46:02", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T03:46:07", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 3, "open_ports": [53, 80, 139]}}
+{"timestamp": "2026-02-08T03:46:09", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:46:10", "event": "invalid_ip_quick_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T03:46:14", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T03:46:25", "event": "scan_start", "data": {"mode": "full", "target": "192.168.74.131", "start_port": 1, "end_port": 60000}}
+{"timestamp": "2026-02-08T03:46:48", "event": "scan_end", "data": {"mode": "full", "target": "192.168.74.131", "start_port": 1, "end_port": 60000, "total": 60000, "open_count": 4, "open_ports": [22, 8000, 40198, 50054]}}
+{"timestamp": "2026-02-08T03:46:50", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T03:46:59", "event": "scan_start", "data": {"mode": "full", "target": "192.168.74.131", "start_port": 1, "end_port": 60000}}
+{"timestamp": "2026-02-08T03:47:13", "event": "scan_end", "data": {"mode": "full", "target": "192.168.74.131", "start_port": 1, "end_port": 60000, "total": 60000, "open_count": 2, "open_ports": [22, 8000]}}
+{"timestamp": "2026-02-08T03:47:15", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T03:47:19", "event": "ping_test_start", "data": {"targets": ["192.168.1.1"]}}
+{"timestamp": "2026-02-08T03:47:19", "event": "ping_end", "data": {"up": 1, "down": 0, "error": 0, "hosts": [{"host": "192.168.1.1", "status": "UP"}]}}
+{"timestamp": "2026-02-08T03:47:24", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T03:47:24", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:47:24", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T03:54:50", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T03:55:00", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T04:19:11", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 4, "open_ports": [53, 80, 139, 443]}}
+{"timestamp": "2026-02-08T04:19:13", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T04:19:14", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T04:19:15", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T04:19:15", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T04:19:15", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T04:19:23", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T04:19:32", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T04:19:42", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 4, "open_ports": [53, 80, 139, 443]}}
+{"timestamp": "2026-02-08T04:19:44", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T04:19:51", "event": "invalid_port_input", "data": {"target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T04:19:53", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T04:26:38", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T04:26:46", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T04:28:33", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 3, "open_ports": [53, 80, 139]}}
+{"timestamp": "2026-02-08T04:28:49", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T04:28:51", "event": "invalid_ip_full_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T04:28:52", "event": "invalid_port_input", "data": {"target": ""}}
+{"timestamp": "2026-02-08T04:28:54", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T22:25:27", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T22:25:27", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T22:25:34", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T22:25:37", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T22:25:42", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 2, "open_ports": [53, 80]}}
+{"timestamp": "2026-02-08T22:25:43", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T22:27:11", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T22:34:10", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T22:34:21", "event": "invalid_ip_quick_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T22:34:24", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T22:34:32", "event": "invalid_ip_quick_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T22:35:18", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T22:35:23", "event": "scan_start", "data": {"mode": "full", "target": "192.168.1.1", "start_port": 1, "end_port": 20}}
+{"timestamp": "2026-02-08T22:35:25", "event": "scan_end", "data": {"mode": "full", "target": "192.168.1.1", "start_port": 1, "end_port": 20, "total": 20, "open_count": 0, "open_ports": []}}
+{"timestamp": "2026-02-08T23:35:15", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T23:35:15", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T23:35:15", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T23:35:17", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T23:40:59", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T23:43:57", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T23:44:07", "event": "invalid_ip_quick_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T23:45:29", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T23:45:29", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T23:45:29", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T23:45:31", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T23:45:31", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T23:45:33", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T23:45:41", "event": "scan_start", "data": {"mode": "quick", "target": "192.168.1.1"}}
+{"timestamp": "2026-02-08T23:46:02", "event": "scan_end", "data": {"mode": "quick", "target": "192.168.1.1", "total": 78, "open_count": 2, "open_ports": [53, 80]}}
+{"timestamp": "2026-02-08T23:46:06", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T23:46:10", "event": "invalid_ip_full_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T23:46:22", "event": "invalid_port_input", "data": {"target": ""}}
+{"timestamp": "2026-02-08T23:46:25", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T23:46:26", "event": "ping_input_failed", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T23:46:26", "event": "menu_choice", "data": {"choice": "4"}}
+{"timestamp": "2026-02-08T23:46:27", "event": "ping_input_failed", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T23:46:30", "event": "menu_choice", "data": {"choice": "1"}}
+{"timestamp": "2026-02-08T23:46:30", "event": "info_view", "data": {}}
+{"timestamp": "2026-02-08T23:46:36", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:46:55", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:46:57", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:46:58", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:46:59", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:46:59", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:47:00", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:47:01", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:47:02", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:47:03", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:47:07", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:47:09", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:47:11", "event": "menu_choice", "data": {"choice": ""}}
+{"timestamp": "2026-02-08T23:47:12", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T23:49:48", "event": "invalid_ip_quick_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T23:50:05", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T23:58:54", "event": "invalid_ip_full_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T23:58:55", "event": "invalid_port_input", "data": {"target": ""}}
+{"timestamp": "2026-02-08T23:58:56", "event": "menu_choice", "data": {"choice": "5"}}
+{"timestamp": "2026-02-08T23:58:56", "event": "exit", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T23:58:56", "event": "session_end", "data": {"tool": "PoryScanner", "version": "0.2"}}
+{"timestamp": "2026-02-08T23:58:58", "event": "menu_choice", "data": {"choice": "2"}}
+{"timestamp": "2026-02-08T23:58:59", "event": "invalid_ip_quick_scan", "data": {"attempts": 3}}
+{"timestamp": "2026-02-08T23:59:01", "event": "menu_choice", "data": {"choice": "3"}}
+{"timestamp": "2026-02-08T23:59:39", "event": "menu_choice", "data": {"choice": "3"}}
