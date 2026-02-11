@@ -1,4 +1,4 @@
-# 🧮 Python Subnet Calculator (Tkinter GUI)
+# Python Subnet Calculator (Tkinter GUI)
 
 This project is a **Python-based Subnet Calculator** with a simple **Tkinter graphical user interface**, developed while studying **Networking, Switching, and Network Administration** during my Master’s degree.
 
@@ -6,31 +6,30 @@ Subnetting isn’t my favourite topic, so instead of memorising formulas, I buil
 
 ---
 
-## 🎯 Project Purpose
+## Project Purpose
 
 The goal of this project was to:
-
-- Reinforce subnetting concepts through hands-on coding  
+ 
 - Visualise subnet calculations using a GUI  
 - Automate common networking tasks such as:
   - Network ID calculation  
   - Usable IP range determination  
   - Broadcast address identification  
-- Make subnetting more approachable and less error-prone  
+- Make subnetting more easier and less work 
 
 ---
 
-## ✨ Features
+## Features
 
-- ✅ GUI built with Tkinter  
-- ✅ Validates IPv4 addresses and subnet masks  
-- ✅ Calculates Network ID, usable IP range, and broadcast address  
-- ✅ Handles invalid input gracefully  
-- ✅ Uses Python’s `ipaddress` module for validation  
+- GUI built with Tkinter  
+- Validates IPv4 addresses and subnet masks  
+- Calculates Network ID, usable IP range, and broadcast address  
+- Handles invalid input gracefully  
+- Uses Python’s `ipaddress` module for validation  
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 ### Prerequisites
 - Python 3 installed
@@ -42,7 +41,7 @@ python subnet_calculator.py
 
 ---
 
-## 📜 Source Code
+## Source Code
 
 ```python
 import tkinter as tk
@@ -157,7 +156,7 @@ root.mainloop()
 
 ---
 
-## 👤 Author
+## Author
 
 **Ethan Cutting**  
 Master of Cybersecurity
