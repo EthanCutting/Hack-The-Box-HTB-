@@ -1,5 +1,5 @@
 """
-    PoryScanner.logger
+    PoryScanner.banner
     Created_Date: 6/02/26
 """
 from colorama import Fore, Style
