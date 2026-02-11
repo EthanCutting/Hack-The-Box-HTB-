@@ -6,13 +6,13 @@ The focus of this script is **SOC-style email triage automation**, reducing manu
 
 ---
 
-## 🔍 Script Overview
+## Script Overview
 
 This Python script parses a raw `.eml` email file and extracts key indicators used during phishing investigations, including authentication results, network indicators, and attachments.
 
 ---
 
-## ⚙️ Script Capabilities
+## Script Functions
 
 - Extracts sender, recipient, subject, and date headers  
 - Parses SPF, DKIM, and DMARC authentication results  
@@ -23,13 +23,13 @@ This Python script parses a raw `.eml` email file and extracts key indicators us
 
 ---
 
-## 📂 Files
+## Files
 - EmailTriageScript.py
 - email.eml
 
 ---
 
-## ▶️ Usage
+## Usage
 
 From the script directory, run:
 
@@ -38,12 +38,12 @@ python3 EmailTriageScript.py
 The script outputs a structured email triage report directly to the terminal.
 
 ---
-🚩 Blue Team Observations
+Blue Team Observations
 
 Financial urgency language is a common phishing tactic. ZIP file attachments represent a high-risk indicator. Passing SPF, DKIM, and DMARC does not guarantee email legitimacy, and header IP analysis remains critical during investigations.
 
 ---
-🎯 Goals of This Script
+Goals of This Script
 
 The purpose of this script is to support HTB Sherlock phishing investigations, practice SOC-style email triage workflows, improve blue team Python scripting skills, and automate repetitive investigation tasks.
 
