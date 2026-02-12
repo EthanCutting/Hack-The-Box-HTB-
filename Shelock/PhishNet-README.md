@@ -7,7 +7,7 @@ The objective is to analyze the email safely and uncover the attacker’s infras
 
 ---
 
-## 🧠 What PhishNet Is Testing
+## What PhishNet Is Testing
 
 You are **NOT meant to**:
 - Detonate malware
@@ -23,7 +23,7 @@ You **ARE meant to**:
 
 ---
 
-## 🔎 Investigation Tasks & Answers
+## Investigation Tasks & Answers
 
 ### Task 1 — What is the originating IP address of the sender?
 
@@ -163,7 +163,7 @@ T1566.001 – Phishing: Spearphishing Attachment
 
 ---
 
-## 🧠 Key Takeaways
+## Key Takeaways
 
 - Email headers provide critical infrastructure intelligence
 - Legitimate-looking domains can still be malicious
