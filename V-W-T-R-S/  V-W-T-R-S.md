@@ -1,7 +1,6 @@
-# Malware Fundamentals 🦠  
+# Malware Fundamentals 
 ## Viruses, Worms, Trojans, Ransomware & Spyware
 
-Understanding malware is a **core cybersecurity skill**.  
 This document explains the most common malware types, how they work, how they spread, and how to defend against them.
 
 ---
@@ -19,7 +18,7 @@ Malware often relies on **human interaction**, **software vulnerabilities**, or 
 
 ---
 
-## 1. Virus 🧬
+## 1. Virus 
 
 ### What Is a Virus?
 A **virus** is malware that **attaches itself to a legitimate file or program** and executes when the host file is run.
@@ -46,7 +45,7 @@ A Word document with a malicious macro that runs when the file is opened.
 
 ---
 
-## 2. Worm 🐛
+## 2. Worm 
 
 ### What Is a Worm?
 A **worm** is self-replicating malware that spreads **without user interaction**, typically across networks.
@@ -72,7 +71,7 @@ The **WannaCry worm** spread using an SMB vulnerability.
 
 ---
 
-## 3. Trojan 🐴
+## 3. Trojan 
 
 ### What Is a Trojan?
 A **Trojan** disguises itself as legitimate software to trick users into installing it.
@@ -98,7 +97,7 @@ A fake “free game” that installs a backdoor.
 
 ---
 
-## 4. Ransomware 🔐
+## 4. Ransomware 
 
 ### What Is Ransomware?
 Ransomware encrypts a victim’s files and demands payment for the decryption key.
@@ -125,7 +124,7 @@ LockBit, REvil, WannaCry
 
 ---
 
-## 5. Spyware 👁️
+## 5. Spyware 
 
 ### What Is Spyware?
 Spyware secretly monitors user activity and collects sensitive information.
@@ -195,4 +194,5 @@ Understanding malware:
 - Is foundational for SOC, blue team, and red team roles
 
 ---
+
 
