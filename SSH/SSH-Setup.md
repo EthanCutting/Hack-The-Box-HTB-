@@ -6,7 +6,7 @@ The lab simulates real SOC workflows: collecting logs, parsing failed login atte
 
 ---
 
-## 🧠 Lab Objectives
+## Lab Objectives
 
 This lab is designed to help practice:
 
@@ -19,36 +19,36 @@ This lab is designed to help practice:
 
 ---
 
-## 🛠️ Phase 1: SSH Server Setup
+## Phase 1: SSH Server Setup
 
-### 1️⃣ Install SSH Server
+### Install SSH Server
 
 ```bash
 sudo apt update
 sudo apt install openssh-server -y
 ```
 
-### 2️⃣ Start and Enable SSH
+### Start and Enable SSH
 
 ```bash
 sudo systemctl start ssh
 sudo systemctl enable ssh
 ```
 
-### 3️⃣ Verify SSH Status
+### Verify SSH Status
 
 ```bash
 sudo systemctl status ssh
 ```
 
-### 4️⃣ Create Test Users
+### Create Test Users
 
 ```bash
 sudo adduser testuser
 sudo adduser adminuser
 ```
 
-### 5️⃣ Monitor SSH Logs
+### Monitor SSH Logs
 
 ```bash
 sudo tail -f /var/log/auth.log
@@ -56,7 +56,7 @@ sudo tail -f /var/log/auth.log
 
 ---
 
-## 🧠 Phase 2: Log Collection & Transfer
+## Phase 2: Log Collection & Transfer
 
 ### Sending logs to an analysis machine
 
@@ -72,11 +72,11 @@ scp ethan@192.168.74.133:/var/log/auth.log ~/ssh_lab_logs.txt
 
 ---
 
-## 🧠 Phase 3: Analyze SSH Logs with Python
+## Phase 3: Analyze SSH Logs with Python
 
 The following Python script parses SSH authentication logs to detect failed login attempts, identify attacking IPs, classify attack types, and generate alerts.
 
-### 🐍 SSH Failed Login Detection Script
+### SSH Failed Login Detection Script
 
 ```python
 #!/usr/bin/env python3
@@ -153,7 +153,7 @@ if __name__ == "__main__":
 
 ---
 
-## ▶️ Output
+## Output
 
 ```text
 === SSH Failed Login Summary ===
@@ -167,7 +167,7 @@ ALERT: 192.168.74.134 -> 7 failures | Password spray
 
 ---
 
-## 🧠 Executable Script
+## Executable Script
 
 ```bash
 chmod +x ssh_detector.py
