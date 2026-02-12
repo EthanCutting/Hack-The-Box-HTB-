@@ -1,6 +1,6 @@
 # Wireshark Commands & Filters Cheat Sheet
 
-## 📌 Overview
+## Overview
 
 This README focuses specifically on **Wireshark commands, filters, and practical analysis expressions** used during network troubleshooting, cybersecurity investigations, and blue-team operations.
 
@@ -8,7 +8,7 @@ The goal of this file is to serve as a **quick-reference command and filter guid
 
 ---
 
-## 🖥️ Starting Wireshark
+## Starting Wireshark
 
 ### Launch Wireshark (Linux)
 
@@ -30,7 +30,7 @@ tshark -i eth0
 
 ---
 
-## 📡 Interface Commands (tshark)
+## Interface Commands (tshark)
 
 | Command           | Description               |
 | ----------------- | ------------------------- |
@@ -42,7 +42,7 @@ tshark -i eth0
 
 ---
 
-## 🎯 Capture Filters (BPF Syntax)
+## Capture Filters (BPF Syntax)
 
 > Applied **before capture starts**
 
@@ -90,7 +90,7 @@ Capture HTTP and HTTPS traffic
 
 ---
 
-## 🔍 Display Filters (Wireshark Syntax)
+## Display Filters (Wireshark Syntax)
 
 > Applied **after capture** for analysis
 
@@ -126,7 +126,7 @@ Show ICMP packets
 
 ---
 
-## 🔑 TCP Analysis Filters
+## TCP Analysis Filters
 
 ```text
 tcp.flags.syn == 1 and tcp.flags.ack == 0
@@ -154,7 +154,7 @@ Detect network congestion
 
 ---
 
-## 🧪 HTTP Filters
+## HTTP Filters
 
 ```text
 http.request
@@ -188,7 +188,7 @@ Unauthorized responses
 
 ---
 
-## 🔐 TLS / HTTPS Filters
+## TLS / HTTPS Filters
 
 ```text
 tls
@@ -216,7 +216,7 @@ Reveal SNI (Server Name Indication)
 
 ---
 
-## 🌐 DNS Filters
+## DNS Filters
 
 ```text
 dns
@@ -244,7 +244,7 @@ DNS responses only
 
 ---
 
-## 🚨 Security & Threat Hunting Filters
+## Security & Threat Hunting Filters
 
 ```text
 ip.dst != 192.168.0.0/16
@@ -272,7 +272,7 @@ Identify suspicious user agents
 
 ---
 
-## 🧰 Useful Wireshark Shortcuts
+## Useful Wireshark Shortcuts
 
 | Shortcut           | Action               |
 | ------------------ | -------------------- |
@@ -284,7 +284,7 @@ Identify suspicious user agents
 
 ---
 
-## 📁 PCAP Handling Commands
+## PCAP Handling Commands
 
 ```bash
 tshark -r capture.pcap
@@ -306,5 +306,5 @@ Extract IP addresses
 
 ---
 
-📌 *Author:* Ethan Cutting
-📌 *Focus:* Cybersecurity | Blue Team | Network Traffic Analysis
+    *Author:* Ethan Cutting
+    *Focus:* Cybersecurity | Blue Team | Network Traffic Analysis
