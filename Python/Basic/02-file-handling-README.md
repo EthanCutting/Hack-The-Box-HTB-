@@ -1,7 +1,6 @@
 # 📁 Python File Handling (Scripting Essentials)
 
-This README covers **file handling**, one of the most important skills in Python scripting.
-
+This README covers **file handling**
 ---
 
 ## 📖 Opening Files
