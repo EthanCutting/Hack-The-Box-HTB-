@@ -1,6 +1,6 @@
 # Wireshark – Network Traffic Analysis Guide
 
-## 📌 Overview
+## Overview
 
 **Wireshark** is a powerful open-source packet analyzer used to capture, inspect, and analyze network traffic in real time. It is widely used by **network engineers, cybersecurity professionals, SOC analysts, and incident responders** to troubleshoot networks, detect malicious activity, and understand protocol behavior.
 
@@ -8,7 +8,7 @@ This repository documents my **Wireshark learning notes, practical usage, filter
 
 ---
 
-## 🔍 What Wireshark Is Used For
+## What Wireshark Is Used For
 
 * Network troubleshooting and performance analysis
 * Packet inspection and protocol analysis
@@ -20,7 +20,7 @@ This repository documents my **Wireshark learning notes, practical usage, filter
 
 ---
 
-## 🧠 How Wireshark Works
+## How Wireshark Works
 
 Wireshark captures packets from a selected network interface and decodes them into human-readable protocol fields.
 
@@ -36,7 +36,7 @@ Captured traffic can be saved as **PCAP / PCAPNG** files for offline analysis an
 
 ---
 
-## 🖥️ Installation
+## Installation
 
 ### Linux (Debian / Kali)
 
@@ -59,7 +59,7 @@ brew install wireshark
 
 ---
 
-## 📡 Network Interfaces
+## Network Interfaces
 
 Common interfaces used in captures:
 
@@ -72,7 +72,7 @@ Choose the interface that matches the traffic you want to analyze.
 
 ---
 
-## 🎯 Capture Filters vs Display Filters
+## Capture Filters vs Display Filters
 
 ### Capture Filters
 
@@ -107,7 +107,7 @@ ftp
 
 ---
 
-## 🔑 Common Display Filters
+## Common Display Filters
 
 | Purpose               | Filter                 |
 | --------------------- | ---------------------- |
@@ -121,7 +121,7 @@ ftp
 
 ---
 
-## 🧪 TCP Three-Way Handshake
+## TCP Three-Way Handshake
 
 A normal TCP connection consists of:
 
@@ -133,7 +133,7 @@ Wireshark allows easy identification of failed or suspicious handshakes.
 
 ---
 
-## 🔐 Encryption & TLS Traffic
+## Encryption & TLS Traffic
 
 * HTTPS traffic payloads are encrypted
 * Headers (IP, TCP, TLS handshake) are still visible
@@ -148,7 +148,7 @@ Wireshark is useful even when payloads cannot be decrypted.
 
 ---
 
-## 🚨 Security & Incident Response Use Cases
+## Security & Incident Response Use Cases
 
 * Detecting suspicious outbound connections
 * Identifying beaconing or C2 traffic
@@ -159,7 +159,7 @@ Wireshark is useful even when payloads cannot be decrypted.
 
 ---
 
-## 🛡️ Useful Security Filters
+## Useful Security Filters
 
 ```text
 tcp.flags.syn == 1 and tcp.flags.ack == 0
@@ -181,7 +181,7 @@ http.request.method == "POST"
 
 ---
 
-## 📁 PCAP Files
+## PCAP Files
 
 * `.pcap` / `.pcapng` files store captured traffic
 * Can be opened and analyzed later
@@ -195,7 +195,7 @@ Always document findings when working with PCAPs.
 
 ---
 
-## 🧠 Best Practices
+## Best Practices
 
 * Capture only what you need
 * Use filters early to reduce noise
@@ -205,14 +205,9 @@ Always document findings when working with PCAPs.
 
 ---
 
-## 🏁 Conclusion
-
-Wireshark is an essential tool for anyone working in **networking or cybersecurity**. Mastering it provides deep insight into how networks operate and how attacks move through them.
-
-This repository serves as a reference and learning log as I continue developing my **blue-team and network analysis skills**.
-
 ---
 
-📌 *Author:* Ethan Cutting
-📌 *Focus:* Cybersecurity | Blue Team | Network Analysis
+   *Author:* Ethan Cutting
+   *Focus:* Cybersecurity | Blue Team | Network Analysis
+
 
