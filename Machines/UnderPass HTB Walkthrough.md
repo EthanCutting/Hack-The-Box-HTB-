@@ -4,7 +4,7 @@ This repository contains a full walkthrough of the **UnderPass** machine from **
 
 ---
 
-## 🎯 Target Information
+## Target Information
 
 - **Machine Name:** UnderPass  
 - **IP Address:** `10.10.11.48`  
@@ -14,7 +14,7 @@ Before starting, add the target to your `/etc/hosts` file.
 
 ---
 
-## 🧭 Initial Setup
+## System sSetup
 
 ### Add Host Entry
 
@@ -36,7 +36,7 @@ sudo cat /etc/hosts
 
 ---
 
-## 🔍 Port Scanning
+## Port Scanning
 
 ### Initial Nmap Scan
 
@@ -56,7 +56,7 @@ This revealed an SNMP service running on the target.
 
 ---
 
-## 🌾 Harvesting Using SNMP
+## Harvesting Using SNMP
 
 `snmpbulkwalk` is used to efficiently retrieve large amounts of SNMP data using a single GETBULK request.
 
@@ -77,7 +77,7 @@ This information suggests the presence of a **daloRADIUS** server.
 
 ---
 
-## 🌐 Web Enumeration (daloRADIUS)
+## Web Enumeration (daloRADIUS)
 
 ### Login Page
 
@@ -96,7 +96,7 @@ Successful login grants access to the daloRADIUS dashboard.
 
 ---
 
-## 🔐 Hash Cracking
+## Hash Cracking
 
 Inside the **User List**, an MD5 password hash is discovered.
 
@@ -113,7 +113,7 @@ This reveals valid credentials for SSH access.
 
 ---
 
-## 🏁 User Flag
+## User Flag
 
 ### SSH Login
 
@@ -134,7 +134,7 @@ cat user.txt
 
 ---
 
-## 🚀 Privilege Escalation (Root)
+## Privilege Escalation (Root)
 
 ### Check Sudo Permissions
 
@@ -158,7 +158,7 @@ MOSH_KEY=<KEY_FROM_OUTPUT> mosh-client 127.0.0.1 61113
 
 ---
 
-## 👑 Root Flag
+## Root Flag
 
 Once connected:
 
@@ -173,7 +173,7 @@ cat root.txt
 
 ---
 
-## 🧠 Key Takeaways
+## Key Takeaways
 
 - Always enumerate **UDP services**
 - SNMP can leak **valuable credentials**
@@ -182,7 +182,7 @@ cat root.txt
 
 ---
 
-## 📚 Tools Used
+## Tools Used
 
 - Nmap
 - SNMP tools (`snmpbulkwalk`)
@@ -192,4 +192,3 @@ cat root.txt
 
 ---
 
-Happy hacking! 🚀
