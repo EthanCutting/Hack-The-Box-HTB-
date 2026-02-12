@@ -6,7 +6,7 @@ The focus of this repo is **practical, real-world security skills**, including b
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ### `Sherlock/`
 Blue Team investigation work for **HTB Sherlock challenges**.
@@ -42,17 +42,17 @@ Notes, commands, and methodology used while working through **HTB Machines**.
 
 ---
 
-### 🔐 `SSH/`
+### `SSH/`
 SSH-related notes, configurations, and experiments used during labs and testing.
 
 ---
 
-### 🧪 `Challenges/`
+### `Challenges/`
 Write-ups, scripts, and notes for various HTB challenges outside of full machines.
 
 ---
 
-## 🎯 Goals of This Repository
+## Goals of This Repository
 
 - Build **SOC-relevant automation tools**
 - Improve **blue team Python scripting**
@@ -62,7 +62,7 @@ Write-ups, scripts, and notes for various HTB challenges outside of full machine
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 All content in this repository is for **educational and ethical security research purposes only**.
 
@@ -71,7 +71,7 @@ All content in this repository is for **educational and ethical security researc
 
 ---
 
-## 🧠 Skills Demonstrated
+## Skills Demonstrated
 
 - Blue Team / SOC analysis
 - Email & log forensics
@@ -82,7 +82,7 @@ All content in this repository is for **educational and ethical security researc
 
 ---
 
-## 📌 Notes
+## Notes
 
 This repository is **actively maintained and evolving** as I continue learning, refining scripts, and improving automation for security operations.
 
