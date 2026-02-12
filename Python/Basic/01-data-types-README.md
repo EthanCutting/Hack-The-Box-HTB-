@@ -2,11 +2,6 @@
 
 This README covers **Python data types**, which are the foundation of all scripting, automation, and problem-solving in Python.
 
-Understanding data types helps you:
-- Store information correctly
-- Choose the right structure for the task
-- Write efficient and readable scripts
-
 ---
 
 ## Numbers
