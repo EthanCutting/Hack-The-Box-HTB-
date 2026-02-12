@@ -176,7 +176,7 @@ chmod +x ssh_detector.py
 
 ---
 
-## 🧠 SOC Fundamentals: Counting Patterns
+## SOC Fundamentals: Counting Patterns
 
 Key counting patterns used in SOC detections:
 
