@@ -1,4 +1,4 @@
-# 🧩 Python Data Types (Scripting Fundamentals)
+# Python Data Types (Scripting Fundamentals)
 
 This README covers **Python data types**, which are the foundation of all scripting, automation, and problem-solving in Python.
 
@@ -9,7 +9,7 @@ Understanding data types helps you:
 
 ---
 
-## 🔢 Numbers
+## Numbers
 
 ```python
 x = 10        # int
@@ -24,7 +24,7 @@ Used for:
 
 ---
 
-## 🔤 Strings (`str`)
+## Strings (`str`)
 
 ```python
 username = "admin"
@@ -40,7 +40,7 @@ ip_address.split(".")
 
 ---
 
-## 🔁 Lists
+## Lists
 
 ```python
 ports = [22, 80, 443]
@@ -54,7 +54,7 @@ Use when:
 
 ---
 
-## 🧺 Tuples
+## Tuples
 
 ```python
 coordinates = (192, 168, 1, 1)
@@ -64,7 +64,7 @@ Used for fixed values and constants.
 
 ---
 
-## 🧩 Sets
+## Sets
 
 ```python
 users = {"admin", "root", "guest"}
@@ -74,7 +74,7 @@ Used for uniqueness and membership testing.
 
 ---
 
-## 🗂️ Dictionaries
+## Dictionaries
 
 ```python
 user = {
