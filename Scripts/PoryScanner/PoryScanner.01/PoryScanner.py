@@ -29,7 +29,7 @@ BLUE = Fore.BLUE
 WHITE = Fore.WHITE
 BLACK = Fore.BLACK
 #-------------------------------------------------------------------------------------------------------------------------------
-# Common services for ports
+#  services for ports
 COMMON_SERVICES = {
     20: 'FTP Data',
     21: 'FTP Control',
@@ -106,7 +106,7 @@ def main_menu():
 #-------------------------------------------------------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------------------------------------------------------
-# Functions for each menu option
+# Functions for options
 def INFO_Option():
     # Display tool information
     welcome_banner()
@@ -244,7 +244,7 @@ def grab_banner(ip, port):
     except Exception:
         return "Connection failed"
 #-------------------------------------------------------------------------------------------------------------------------------
-# Scan Ports Function
+# full scan Function
 def FULL_Option():
     ipaddress = input(f"{GREEN}Enter IP address to scan: {RESET}")
     first_port = int(input(f"{GREEN}Enter first port number:{RESET} "))
@@ -335,7 +335,7 @@ def EXIT_Option():
     print("Exiting the program.")
     exit()
 #-------------------------------------------------------------------------------------------------------------------------------
-# Main program loop
+# Main loop
 if __name__ == "__main__":
     while True:
         main_menu()
