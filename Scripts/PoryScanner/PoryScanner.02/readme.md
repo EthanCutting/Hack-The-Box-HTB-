@@ -30,13 +30,13 @@ It provides a clean terminal UI, THREADS scanning, and noob service/banner detec
 
 ---
 
-## How It Works (Simple Explanation)
+## How It Works
 
 - Uses **TCP sockets** (`AF_INET`, `SOCK_STREAM`)
-- Trys to connect to each port using `connect_ex()`
+- connect to each port using `connect_ex()`
   - `0` → **OPEN**
   - Non-zero → **CLOSED / FILTERED**
-- Quick Scan uses **threading** to speed things up
+- Quick Scan uses **threading** 
 - Full Scan runs **sequentially** for predictable behavior
 - Banner grabbing reads any data returned after a successful connection
 
