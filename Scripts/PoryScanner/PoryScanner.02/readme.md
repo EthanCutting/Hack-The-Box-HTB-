@@ -30,7 +30,7 @@ It provides a clean terminal UI, THREADS scanning, and noob service/banner detec
 
 ---
 
-## How It Works
+## How It Works !
 
 - Uses **TCP sockets** (`AF_INET`, `SOCK_STREAM`)
 - connect to each port using `connect_ex()`
