@@ -6,14 +6,14 @@ This repository documents my investigation and answers for the **SalineBreeze-1 
 
 ---
 
-## 🧠 Scenario Overview
+## Scenario Overview
 
 Salt Typhoon is a **China-nexus, state-sponsored threat actor** known for long-term espionage campaigns targeting **telecommunications and ISP infrastructure**.  
 This Sherlock scenario walks through threat intelligence research, MITRE ATT&CK mapping, and malware analysis across multiple vendor reports.
 
 ---
 
-## 🎯 Tasks & Findings
+## Tasks & Findings
 
 ### Task 1 — Country Attribution
 **Answer:** 🇨🇳 **China (People’s Republic of China)**
@@ -135,7 +135,7 @@ telcom.grishamarkovgf8936.workers.dev
 
 ---
 
-## 📚 References
+## References
 
 - MITRE ATT&CK
 - Picus Security
@@ -143,5 +143,3 @@ telcom.grishamarkovgf8936.workers.dev
 - Kaspersky Securelist
 
 ---
-
-🧩 **Sherlock completed — threat intelligence successfully mapped.**
