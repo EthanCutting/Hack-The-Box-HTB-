@@ -2,8 +2,6 @@
 
 This repository documents my investigation and answers for the **SalineBreeze-1 Sherlock** challenge on **Hack The Box**, which focuses on the **Salt Typhoon** (aka **GhostEmperor / Earth Estries**) advanced persistent threat group.
 
-> ⚠️ This content is for **educational purposes only** and reflects analysis performed in a legal, controlled environment (HTB Sherlock).
-
 ---
 
 ## Scenario Overview
