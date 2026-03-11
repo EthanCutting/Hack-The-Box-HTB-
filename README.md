@@ -47,9 +47,6 @@ SSH-related notes, configurations, and experiments used during labs and testing.
 
 ---
 
-### `Challenges/`
-Write-ups, scripts, and notes for various HTB challenges outside of full machines.
-
 ---
 
 ## Goals of This Repository
