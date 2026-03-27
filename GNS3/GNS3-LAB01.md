@@ -27,7 +27,7 @@ PC → Switch → R1 → R2 (ISP) → Internet
 sudo ip addr add 192.168.20.10/24 dev eth0
 sudo ip link set eth0 up
 sudo ip route add default via 192.168.20.1
-
+```
 # DNS fix
 ```bash
 sudo nano /etc/resolv.conf
@@ -44,10 +44,11 @@ sudo apt install net-tools curl -y
 curl -O https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py --break-system-packages
 python3 -m pip install --break-system-packages netmiko
-
+```
 # Verify Installtion
 ```bash
   python3 -c "import netmiko; print(netmiko.__version__)"
+```
 ---
 
 ## Switch1 Configuration
@@ -69,7 +70,7 @@ vlan 40
 
 end
 wr
-
+```
 ### Configure Access Ports
 ```bash
 interface g0/0
@@ -82,7 +83,7 @@ interface g0/0
 interface g0/3
  switchport mode trunk
  no shutdown
-
+```
 ### Switch Management
 ```bash
 interface vlan 20
@@ -90,8 +91,8 @@ interface vlan 20
  no shutdown
 
 ip default-gateway 192.168.20.1
-
-----------------------------------------------------------------------------------------------------------------------------------------
+```
+---
 
 ### setting Router's
 # Router one
