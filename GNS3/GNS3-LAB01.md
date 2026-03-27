@@ -51,8 +51,8 @@ python3 -m pip install --break-system-packages netmiko
 ```
 ---
 
-## Switch1 Configuration
-# Vlan
+# Switch1 Configuration
+## Vlan
 ```bash
 conf t
 
@@ -71,20 +71,20 @@ vlan 40
 end
 wr
 ```
-### Configure Access Ports
+## Configure Access Ports
 ```bash
 interface g0/0
  switchport mode access
  switchport access vlan 20
  no shutdown
-
-### Configure Trunk Port (to Router1)
+```
+## Configure Trunk Port (to Router1)
 ```bash
 interface g0/3
  switchport mode trunk
  no shutdown
 ```
-### Switch Management
+## Switch Management
 ```bash
 interface vlan 20
  ip address 192.168.20.2 255.255.255.0
@@ -94,71 +94,79 @@ ip default-gateway 192.168.20.1
 ```
 ---
 
-### setting Router's
-# Router one
+# Router1 Configuration
+## Basic setup
+```bash
+conf t
+hostname R1
 no ip domain-lookup
-hostname Router1
-
-# for open port for trunk
+```
+## Interface
+```bash
 interface f0/0
-no shutdown
+ no shutdown
 
 interface f1/0
-ip address 10.12.1 255.255.255.252
-no shutdown
-
-# sub-interface
+ ip address 10.0.12.1 255.255.255.252
+ no shutdown
+## Router-on-a-Stick
+```bash
 interface f0/0.10
-encapsulation dot1Q 10
-ip address 192.168.10.1 255.255.255.0
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
 
 interface f0/0.20
-encapsulation dot1Q 20
-ip address 192.168.20.1 255.255.255.0
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
 
 interface f0/0.30
-encapsulation dot1Q 30
-ip address 192.168.30.1 255.255.255.0
+ encapsulation dot1Q 30
+ ip address 192.168.30.1 255.255.255.0
 
 interface f0/0.40
-encapsulation dot1Q 40
-ip address 192.168.40.1 255.255.255.0
-
-# DHCP
+ encapsulation dot1Q 40
+ ip address 192.168.40.1 255.255.255.0
+```
+## DHCP Configuration
+```bash
 ip dhcp excluded-address 192.168.10.1 192.168.10.20
 ip dhcp excluded-address 192.168.20.1 192.168.20.20
 ip dhcp excluded-address 192.168.30.1 192.168.30.20
 ip dhcp excluded-address 192.168.40.1 192.168.40.20
 
 ip dhcp pool VLAN10
-network 192.168.10.0 255.255.255.0
-default-router 192.168.10.1
-dns-server 8.8.8.8
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
 
 ip dhcp pool VLAN20
-network 192.168.20.0 255.255.255.0
-default-router 192.168.20.1
-dns-server 8.8.8.8
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 8.8.8.8
 
 ip dhcp pool VLAN30
-network 192.168.30.0 255.255.255.0
-default-router 192.168.30.1
-dns-server 8.8.8.8
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.1
+ dns-server 8.8.8.8
 
 ip dhcp pool VLAN40
-network 192.168.40.0 255.255.255.0
-default-router 192.168.40.1
-dns-server 8.8.8.8
-
+ network 192.168.40.0 255.255.255.0
+ default-router 192.168.40.1
+ dns-server 8.8.8.8
+```
+## Default Route
+```bash
 ip route 0.0.0.0 0.0.0.0 10.0.12.2
-
-# from router 1
+```
+## Verification
+```bash
 ping 10.0.12.2
 ping 8.8.8.8 source 192.168.20.1
+show ip route
+```
 
-show ip route = should see: S* 0.0.0.0/0 via 10.0.12.2
+---
 
-----------------------------------------------------------------------------------------------------------------------------------------
 # Router two (ISP)
 interface f0/0   ! to R1
 ip address 10.0.12.2 255.255.255.252
@@ -180,10 +188,14 @@ ip route 192.168.20.0 255.255.255.0 10.0.12.1
 ip route 192.168.30.0 255.255.255.0 10.0.12.1
 ip route 192.168.40.0 255.255.255.0 10.0.12.1
 
+
+
+---
+
+
 # clear nat if issuess
 clear ip nat translation *
 
-----------------------------------------------------------------------------------------------------------------------------------------
 
 
 # telnet testing  (scripting)
