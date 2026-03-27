@@ -1,10 +1,14 @@
-### GNS3 LAB CHEAT SHEET
+# GNS3 LAB 01 – Enterprise Network Setup
 
-### tologorlys  
+## Topology
+
 PC → Switch → R1 → R2 (ISP) → Internet
 
-# Subnet
-## VLAN Subnet Table
+---
+
+## Subnet Plan
+
+### VLAN Subnet Table
 
 | VLAN | Name        | Subnet            | Gateway (R1)     | Devices                  |
 |------|------------|------------------|------------------|--------------------------|
@@ -12,51 +16,79 @@ PC → Switch → R1 → R2 (ISP) → Internet
 | 20   | ADMIN       | 192.168.20.0/24  | 192.168.20.1     | Ubuntu + Switch mgmt     |
 | 30   | HR          | 192.168.30.0/24  | 192.168.30.1     | PCs                      |
 | 40   | ACCOUNTING  | 192.168.40.0/24  | 192.168.40.1     | PCs                      |
-----------------------------------------------------------------------------------------------------------------------------------------
 
-### GNS3 LAB CHEAT SHEET
-## setting up Ubuntu
+---
+
+## Ubuntu Setup
+
+### Static IP Configuration
+
+```bash
 sudo ip addr add 192.168.20.10/24 dev eth0
 sudo ip link set eth0 up
 sudo ip route add default via 192.168.20.1
 
 # DNS fix
-sudo nano /etc/resolv.conf = nameserver 8.8.8.8
+```bash
+sudo nano /etc/resolv.conf
+Add:
+```bash
+nameserver 8.8.8.8
 
 # LIB
+```bash
 sudo apt update
-sudo apt install net-tools
-sudo apt install curl
+sudo apt install net-tools curl -y
+
 curl -O https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py --break-system-packages
 python3 -m pip install --break-system-packages netmiko
 
-then test:
+# Verify Installtion
+```bash
   python3 -c "import netmiko; print(netmiko.__version__)"
-----------------------------------------------------------------------------------------------------------------------------------------
+---
 
-## Switch1
+## Switch1 Configuration
 # Vlan
-- vlan 10
-- name USERS
-- vlan 20
-- name ADMIN
-- vlan 30
-- name HR
-- vlan 40
-- name ACCOUNTING
-- exti
+```bash
+conf t
 
-# TRUNK
+vlan 10
+ name USERS
+
+vlan 20
+ name ADMIN
+
+vlan 30
+ name HR
+
+vlan 40
+ name ACCOUNTING
+
+end
+wr
+
+### Configure Access Ports
+```bash
+interface g0/0
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+
+### Configure Trunk Port (to Router1)
+```bash
 interface g0/3
-switch mode trunk
-no shutdown
+ switchport mode trunk
+ no shutdown
 
-# vlan
-interface g0/0   ! Ubuntu
-switchport mode access
-switchport access vlan 20
-no shutdown
+### Switch Management
+```bash
+interface vlan 20
+ ip address 192.168.20.2 255.255.255.0
+ no shutdown
+
+ip default-gateway 192.168.20.1
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
