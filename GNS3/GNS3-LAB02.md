@@ -1,0 +1,24 @@
+# Network Design
+
+## Topology
+PCs / Ubuntu -> Switch -> R1 -> R2 (ISP) -> Internet
+
+what this lab includes
+4 VLANs
+Inter-VLAN routing using router-on-a-stick
+DHCP on R1
+NAT on R2
+Ubuntu in the ADMIN VLAN
+Switch management in VLAN 20
+
+## Subnet Table
+## Subnet Plan
+
+| VLAN | Name       | Subnet           | Default Gateway | Devices                    |
+|------|------------|------------------|-----------------|----------------------------|
+| 10   | USERS      | 192.168.10.0/24  | 192.168.10.1    | User PCs                   |
+| 20   | ADMIN      | 192.168.20.0/24  | 192.168.20.1    | Ubuntu, Admin devices      |
+| 30   | HR         | 192.168.30.0/24  | 192.168.30.1    | HR PCs                     |
+| 40   | ACCOUNTING | 192.168.40.0/24  | 192.168.40.1    | Accounting PCs             |
+| N/A  | R1-R2 LINK | 10.0.12.0/30     | N/A             | R1 = 10.0.12.1, R2 = 10.0.12.2 |
+| N/A  | INTERNET   | 203.0.113.0/24   | 203.0.113.1     | R2 outside interface       |
