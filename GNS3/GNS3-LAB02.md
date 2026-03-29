@@ -45,9 +45,18 @@ Switch1 is responible for:
 - Allowing communication between switches through trunk links
 
 overall, Switch1 acts as the central layer 2 device that organises network traffic and sends it to the router when communication between VLANs required.
+
 ---
 ## Switch2
 <img width="548" height="1220" alt="switch2" src="https://github.com/user-attachments/assets/76209a40-ce60-4340-b8d7-c9eb19d2bdff" />
+Switch2 acts as a secondary access switch connected to Switch1. It extends the network by allowing more devices to join different VLANs.
+on Switch2, I configured the same VLANs (10,20,30,40) to match Switch1. Device ports were assigned to the correct VLANs so that end devices could communicate within their network segment.
+A trunk link was configured between Switch 2 and Switch1, allowing VLAN traffic to pass between both switches. This ensures that devices on Switch2 can still reach the router (Route1) through Switch1 for inter-VLAN routing.
+Switch2 is responsible for:
+- Connecting additional end devices to the network
+- Maintaining VLAN consistency across switches
+- forwarding VLAN traffic to Switch1 via trunk
+Overall, Switch2 will extend the network while maintaining proper VLAN segmentation and connectivity the rest of the infrastructure.
 
 ---
 ## Router1
