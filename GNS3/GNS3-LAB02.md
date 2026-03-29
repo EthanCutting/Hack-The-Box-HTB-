@@ -53,6 +53,9 @@ PCs / Ubuntu -> SW2 -> SW1 -> R1 -> R2 -> Internet
 ---
 ## Ubuntu
 
+### ACL - Run on Ubuntu
+<img width="1040" height="1003" alt="2run" src="https://github.com/user-attachments/assets/bd0f7cde-aa3f-4362-8f95-a00e2a970236" />
+
 ---
 # Python Script
 
