@@ -2,6 +2,10 @@
 
 This lab focuses on building a basic enterprise network in GNS3. It includes VLAN configuration, trunking, router-on-a-stick for inter-VLAN routing, DHCP for dynamic IP allocation, and NAT for internet access. The environment is validated using an Ubuntu host and extended with Python-based network automation.
 ---
+<img width="958" height="445" alt="lab01pic" src="https://github.com/user-attachments/assets/f8e4484e-ce80-4404-b21d-bbce1782dc35" />
+
+
+---
 ## Topology
 
 PC → Switch → R1 → R2 (ISP) → Internet
