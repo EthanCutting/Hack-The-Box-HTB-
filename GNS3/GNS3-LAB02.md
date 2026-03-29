@@ -33,6 +33,18 @@ PCs / Ubuntu -> SW2 -> SW1 -> R1 -> R2 -> Internet
 ## Switch1
 <img width="488" height="1143" alt="switch1" src="https://github.com/user-attachments/assets/bd2b4b38-30f2-43a6-8086-a09e9f0c15c0" />
 
+Switch1 is the main access switch in the network. It is connecting end devices (PCs and Ubuntu) and forwards traffic to the router (Router1) for inter-VLAN Routing.
+on switch1, I created multiple VLANs (10,20,30,40) to put different departments such as Users, Admim, HR and Accounting. Each device port was assigned to the correct VLAN to ensure proper network segmentation.
+
+I configured trunk links between:
+- Switch1 and Router1 this is for Router-on-a-Stick
+- Switch and Switch2 this will allow VLAN traffic between switches
+Switch1 is responible for:
+- Separating traffic using VLANs
+- Forwarding tagged traffic to the router for routing
+- Allowing communication between switches through trunk links
+
+overall, Switch1 acts as the central layer 2 device that organises network traffic and sends it to the router when communication between VLANs required.
 ---
 ## Switch2
 <img width="548" height="1220" alt="switch2" src="https://github.com/user-attachments/assets/76209a40-ce60-4340-b8d7-c9eb19d2bdff" />
