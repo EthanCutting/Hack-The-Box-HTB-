@@ -31,8 +31,7 @@ PCs / Ubuntu -> SW2 -> SW1 -> R1 -> R2 -> Internet
 - SW2 VLAN 20: 192.168.20.3/24
 ---
 ## Switch1
-<img width="895" height="1095" alt="switch1" src="https://github.com/user-attachments/assets/8e5a3945-ed31-4699-9d5c-2754fa4694e0" />
-
+<img width="488" height="1143" alt="switch1" src="https://github.com/user-attachments/assets/bd2b4b38-30f2-43a6-8086-a09e9f0c15c0" />
 
 
 ---
