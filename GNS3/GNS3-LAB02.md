@@ -142,6 +142,13 @@ This verifies that:
 ### Option 2
 <img width="1040" height="1003" alt="2run" src="https://github.com/user-attachments/assets/bd0f7cde-aa3f-4362-8f95-a00e2a970236" />
 
+This ACL policy is designed to restrict communication from the USERS VLAN (VLAN 10) to the ACCOUNTING VLAN (VLAN 40) while allowing all other traffic.
+I created an extended ACL named USERS_BLOCK_ACCOUNTING that denies traffic from the USERS subnet (192.168.10.0/24) to the ACCOUNTING subnet (192.168.40.0/24). After the deny rule, a permit ip any any statement is used so that all other traffic can continue normally.
+The ACL is applied inbound on the VLAN 10 sub-interface (FastEthernet0/0.10), which means traffic is filtered as it enters the router from the USERS network.
+
+This ensures:
+- Users in VLAN 10 cannot access Accounting resources
+- Users in VLAN 10 can still access other permitted networks
 
 ### ACL Testing
 <img width="888" height="385" alt="pc2" src="https://github.com/user-attachments/assets/28004be8-b11e-438a-8d1c-ad1465b3b0ea" />
