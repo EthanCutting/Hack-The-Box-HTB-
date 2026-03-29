@@ -2,33 +2,42 @@
 
 This lab demonstrates a small enterprise network in GNS3 using two switches, VLAN segmentation, inter-VLAN routing, DHCP, and NAT.
 ---
-## Topology
+## Network Topology
 <img width="934" height="491" alt="lab02" src="https://github.com/user-attachments/assets/1c721b5a-6786-41f8-9d44-b0cf681c103a" />
 
-PCs / Ubuntu -> SW1 -> SW2 -> R1 -> R2 -> Internet
+PCs / Ubuntu -> SW2 -> SW1 -> R1 -> R2 -> Internet
 
 ## Subnet Plan
 
-| VLAN | Name       | Subnet          | Default Gateway | Devices               |
-|------|------------|-----------------|-----------------|-----------------------|
-| 10   | USERS      | 192.168.10.0/24 | 192.168.10.1    | User PCs              |
-| 20   | ADMIN      | 192.168.20.0/24 | 192.168.20.1    | Ubuntu, Admin devices |
-| 30   | HR         | 192.168.30.0/24 | 192.168.30.1    | HR PCs                |
-| 40   | ACCOUNTING | 192.168.40.0/24 | 192.168.40.1    | Accounting PCs        |
-| N/A  | R1-R2 LINK | 10.0.12.0/30    | N/A             | R1: 10.0.12.1 / R2: 10.0.12.2 |
-| N/A  | INTERNET   | 203.0.113.0/24  | 203.0.113.1     | R2 outside interface  |
+| VLAN | Name        | Subnet           | Gateway        |
+|------|------------|------------------|---------------|
+| 10   | USERS      | 192.168.10.0/24  | 192.168.10.1  |
+| 20   | ADMIN      | 192.168.20.0/24  | 192.168.20.1  |
+| 30   | HR         | 192.168.30.0/24  | 192.168.30.1  |
+| 40   | ACCOUNTING | 192.168.40.0/24  | 192.168.40.1  |
+| N/A  | R1–R2 LINK | 10.0.12.0/30     | -             |
+| N/A  | INTERNET   | DHCP (NAT)       | -             |
 
+- VLAN segmentation across multiple switches  
+- 802.1Q trunking between switches  
+- Router-on-a-Stick inter-VLAN routing  
+- DHCP for automatic IP assignment  
+- NAT overload for internet access  
+- Static routing between R1 and R2  
+- ACL to restrict VLAN access  
+---
 ## Management IPs
-
-- SW1 VLAN 20: 192.168.20.2/24
+- SW1 VLAN 20: 192.168.20.4/24
 - SW2 VLAN 20: 192.168.20.3/24
-- Ubuntu: 192.168.20.10/24
-- Default gateway: 192.168.20.1
+---
+## Switch1
+
+
 
 ---
+# Python Script
 
-
-'''python
+```python
 
 from netmiko import ConnectHandler
 from getpass import getpass
@@ -124,4 +133,4 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-    '''
+```
