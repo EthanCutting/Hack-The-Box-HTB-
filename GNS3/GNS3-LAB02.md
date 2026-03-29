@@ -115,6 +115,12 @@ Overall, Router2 is responsible for:
 ### ACL - Run on Ubuntu
 <img width="1040" height="1003" alt="2run" src="https://github.com/user-attachments/assets/bd0f7cde-aa3f-4362-8f95-a00e2a970236" />
 
+
+### ACL Testing
+<img width="888" height="385" alt="pc2" src="https://github.com/user-attachments/assets/28004be8-b11e-438a-8d1c-ad1465b3b0ea" />
+
+ACL testing confirmed that the access control rule was working as expected. Devices in VLAN 10 were still able to communicate with other permitted VLANs, but traffic from VLAN 10 to VLAN 40 successfully blocked. This showed that the ACL was correclty applied to restrict only the targeted network traffic without affecting the rest of the network.
+
 ---
 # Python Script
 
