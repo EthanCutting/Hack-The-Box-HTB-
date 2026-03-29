@@ -66,13 +66,37 @@ Overall, Switch2 will extend the network while maintaining proper VLAN segmentat
 ### Sub-Interface
  <img width="340" height="1021" alt="subinterface" src="https://github.com/user-attachments/assets/863e9835-7c01-48c3-934b-c7b00c849f5b" />
 
+Router1 is the main layer 3 device in the network and is responisible for routing traffic between VLANs. I configured sub-interface on FastEthernet0/0 using Router-on-a-Stick so that each VLAN has it own default gateway.
+Each sub-interface was assigned to a specific VLAN using 802.1Q encapsulation and given an IP address to act as the gateway for the network. This allows devices in different VLANs to communicate with each other through Router1.
+Router1 is also connected to Router2 using a separate point-to-point link, and a default route was added so that traffic can be forwarded towards the internet.
+
+overall, this section handles:
+- Inter-VLAN routing
+- Default gateways for each VLAN
+- Forwarding traffic towards Router2
 
 ### DHCP
 <img width="285" height="244" alt="dhcp" src="https://github.com/user-attachments/assets/ea632634-e65d-4e67-96f3-36932c70df1c" />
 
+on Router1, I configured DHCP pools for each VLAN so devices can automatically receive an IP address, subnet mask, and default gateway.\
+
+Each VLAN has it own DHCP pool:
+- VLAN 10 = USERS
+- Vlan 20 = ADMIN
+- Vlan 30 = HR
+- vlan 40 = ACCOUNTING
+
+This allow end devices to join the network without manual IP configuration. When a device connects to the network, Router1 assigns it an address based on the VLAN it belongs to.
+
+Overall, this section handlers:
+- Automatic IP address assignment
+- Default gateway distribution
+- Simple network management for end devices
+  
 ---
 ## Router2
 <img width="503" height="1010" alt="r2" src="https://github.com/user-attachments/assets/85573f5a-61e6-4051-ad75-8e26735d84ba" />
+
 
 ---
 ## Ubuntu
