@@ -111,14 +111,32 @@ Overall, Router2 is responsible for:
   
 ---
 ## Ubuntu
+ACL - Run on Ubuntu
 
-### ACL - Run on Ubuntu
 ### Option 1
 <img width="1104" height="1074" alt="option1" src="https://github.com/user-attachments/assets/ea821d05-cebd-46c8-acbb-722bc5d32322" />
+
+This ACL policy is designed to restrict communication from HR VLAN (VLAN30) to the ADMIN VLAN (VLAN20) while allowing all other traffic.
+I created an extended ACL name HR_BLOCK_ADMIN that denis traffic from the HR student (192.168.30.0/24) to the ADMIN subnet (192.168.20.0/24). After the deny rule, a permit ip any any statement is used to allow all other traffic to pass normally.
+The ACL is applied inbound on the VLAN 30 sub-interface (FastEthernet0/0.30), which means traffic is filtered as its enters the router from the HR network.
+
+This ensures:
+- HR users cannot access ADMIN resources
+- HR users can still access other VLANs and the internet
 
 
 ### ACL Testing
 <img width="895" height="370" alt="pc1" src="https://github.com/user-attachments/assets/41719672-41f7-4c40-82f5-fa2fc8f91d83" />
+
+Testing confirmed that the ACL was working as expected.
+
+Devices in VLAN30 were unable to reach devices in VLAN 20, reciving a "communication administratively prohibited" response, which indicates the ACL is actively blocking the traffic.
+
+At the same time, communication to other networks remained unaffected, confirmining that only the intended traffic was restricted.
+
+This verifies that:
+- VLAN 30 = VLAN20 is successfully blocked
+- All other traffic flow normally
 
 
 ### Option 2
