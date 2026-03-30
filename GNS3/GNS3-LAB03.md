@@ -24,6 +24,7 @@ What this side is doing:
 - Acting as your internal LAN
 - Ubuntu = admin / management device
 - Likely VLAN + DHCP here
+  
 This is your controlled/internal network
 
 ### TOP (R1 + PC3)
@@ -37,6 +38,7 @@ What this part is:
   - Another department
   - Server network
   - Or test VLAN
+    
 R1 = core router / distribution layer
 
 ### Middle (ISP)
