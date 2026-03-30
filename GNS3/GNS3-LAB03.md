@@ -116,5 +116,75 @@ This is key for:
 | 26 | end |
 | 27 | write memory |
 
+### R1 (Main Router - DHCP + INTER-VLAN + OSPF + NAT)
+| Step | Command |
+|------|--------|
+| 1 | enable |
+| 2 | configure terminal |
+| 3 | hostname R1 |
+| 4 | no ip domain-lookup |
+
+| 5 | interface g0/0 |
+| 6 | no shutdown |
+| 7 | exit |
+
+| 8 | interface g0/0.10 |
+| 9 | encapsulation dot1Q 10 |
+| 10 | ip address 192.168.10.1 255.255.255.0 |
+| 11 | ip nat inside |
+| 12 | exit |
+
+| 13 | interface g0/0.20 |
+| 14 | encapsulation dot1Q 20 |
+| 15 | ip address 192.168.20.1 255.255.255.0 |
+| 16 | ip nat inside |
+| 17 | exit |
+
+| 18 | interface g0/0.30 |
+| 19 | encapsulation dot1Q 30 |
+| 20 | ip address 192.168.30.1 255.255.255.0 |
+| 21 | ip nat inside |
+| 22 | exit |
+
+| 23 | interface g0/1 |
+| 24 | ip address 10.0.0.1 255.255.255.252 |
+| 25 | ip nat outside |
+| 26 | no shutdown |
+| 27 | exit |
+
+| 28 | ip dhcp excluded-address 192.168.10.1 192.168.10.10 |
+| 29 | ip dhcp excluded-address 192.168.20.1 192.168.20.10 |
+| 30 | ip dhcp excluded-address 192.168.30.1 192.168.30.10 |
+
+| 31 | ip dhcp pool VLAN10 |
+| 32 | network 192.168.10.0 255.255.255.0 |
+| 33 | default-router 192.168.10.1 |
+| 34 | dns-server 8.8.8.8 |
+| 35 | exit |
+
+| 36 | ip dhcp pool VLAN20 |
+| 37 | network 192.168.20.0 255.255.255.0 |
+| 38 | default-router 192.168.20.1 |
+| 39 | dns-server 8.8.8.8 |
+| 40 | exit |
+
+| 41 | ip dhcp pool VLAN30 |
+| 42 | network 192.168.30.0 255.255.255.0 |
+| 43 | default-router 192.168.30.1 |
+| 44 | dns-server 8.8.8.8 |
+| 45 | exit |
+
+| 46 | access-list 1 permit 192.168.0.0 0.0.255.255 |
+| 47 | ip nat inside source list 1 interface g0/1 overload |
+
+| 48 | router ospf 1 |
+| 49 | network 10.0.0.0 0.0.0.3 area 0 |
+| 50 | network 192.168.0.0 0.0.255.255 area 0 |
+| 51 | exit |
+
+| 52 | ip route 0.0.0.0 0.0.0.0 10.0.0.2 |
+
+| 53 | end |
+| 54 | write memory |
 
 ---
