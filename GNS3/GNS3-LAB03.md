@@ -20,7 +20,6 @@ Devices:
 - PC1
 - Switch1
 - R2
-
 What this side is doing:
 - Acting as your internal LAN
 - Ubuntu = admin / management device
