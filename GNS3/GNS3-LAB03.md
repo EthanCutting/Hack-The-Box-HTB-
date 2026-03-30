@@ -13,6 +13,18 @@ buidling a multi-site network with:
 - Core router (R1)
 - ISP (middle) connecting everything
 
+## Features Implemented
+| Feature | Description |
+|---|---|
+| VLANs | Segmented the network into multiple logical departments |
+| Router-on-a-Stick | Used subinterfaces for inter-VLAN routing |
+| DHCP | Assigned IP addresses automatically to end devices |
+| OSPF | Dynamically exchanged routes between routers |
+| NAT/PAT | Allowed internal networks to reach the simulated internet |
+| Default Routing | Directed unknown traffic toward the ISP router |
+| Switch Management | Configured management IP addresses on switches |
+| Ubuntu Admin Host | Used for testing, management, and later automation |
+
 ## Network Breakdown
 ### Left side (Admin/HQ)
 Devices:
@@ -80,20 +92,19 @@ This is key for:
 ---
 ## Commands
 ### Router1 Configuration
-| Step | Command |
-|------|--------|
-| 1 | enable |
-| 2 | configure terminal |
-| 3 | hostname R1 |
-| 4 | interface g0/0 |
-| 5 | ip address 192.168.10.254 255.255.255.0 |
-| 6 | no shutdown |
-| 7 | exit |
-| 8 | interface g0/1 |
-| 9 | ip address 192.168.20.254 255.255.255.0 |
-| 10 | no shutdown |
-| 11 | exit |
-| 12 | end |
-| 13 | write memory |
+
+### Switch1 XConfiguration
+
+### Switch2 Configuration
+
+
+### Switch3 Configuration
+
+### VPCS Configuration
+
+
+### Ubuntu Configuration
+
+
 
 ---
