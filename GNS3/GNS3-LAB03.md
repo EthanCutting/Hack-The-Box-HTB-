@@ -174,4 +174,34 @@ This is key for:
 | 53 | end |
 | 54 | write memory |
 
+### ISP Router
+| Step | Command |
+|------|--------|
+| 1 | enable |
+| 2 | configure terminal |
+| 3 | hostname ISP |
+| 4 | interface g0/0 |
+| 5 | ip address 10.0.0.2 255.255.255.252 |
+| 6 | no shutdown |
+| 7 | exit |
+| 8 | interface loopback0 |
+| 9 | ip address 8.8.8.8 255.255.255.255 |
+| 10 | exit |
+| 11 | router ospf 1 |
+| 12 | network 10.0.0.0 0.0.0.3 area 0 |
+| 13 | exit |
+| 14 | ip route 192.168.0.0 255.255.0.0 10.0.0.1 |
+| 15 | end |
+| 16 | write memory |
+
+### Testing
+| Test | Command |
+|------|--------|
+| Check IP | ipconfig / ip addr |
+| Ping gateway | ping 192.168.10.1 |
+| Ping other VLAN | ping 192.168.20.1 |
+| Ping internet | ping 8.8.8.8 |
+| OSPF check | show ip route |
+| NAT check | show ip nat translations |
+
 ---
