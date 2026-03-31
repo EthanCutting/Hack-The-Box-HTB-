@@ -1,6 +1,7 @@
 # GNS3 LAB 02 - Enterprise Network Setup
 
 This lab demonstrates a small enterprise network in GNS3 using two switches, VLAN segmentation, inter-VLAN routing, DHCP, and NAT.
+
 ---
 ## Network Topology
 <img width="934" height="491" alt="lab02" src="https://github.com/user-attachments/assets/1c721b5a-6786-41f8-9d44-b0cf681c103a" />
