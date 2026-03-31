@@ -185,14 +185,4 @@ Keylogger capturing login credentials.
 
 ---
 
-## Why This Matters in Cybersecurity
-
-Understanding malware:
-- Helps detect real-world attacks
-- Improves incident response
-- Builds strong defensive strategies
-- Is foundational for SOC, blue team, and red team roles
-
----
-
 
