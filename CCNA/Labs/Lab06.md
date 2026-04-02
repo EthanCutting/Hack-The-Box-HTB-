@@ -1,5 +1,6 @@
 # Lab06
 <img width="543" height="433" alt="Lab06" src="https://github.com/user-attachments/assets/114bd010-c74c-4cb2-b2d6-523398de3f2d" />
+
 Because all PCs are in 192.168.1.0/24 and connected through layer 2 switches only, PC1 can reach PC3 direclty with no router involved.
 ## 1. If PC1 pings PC3, what messages are sent and who receives them?
 starting the lab both switches have empty MAC tables, and all PCs have empty ARP tables.
