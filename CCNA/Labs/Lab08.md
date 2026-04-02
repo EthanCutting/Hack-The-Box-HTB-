@@ -29,6 +29,7 @@ interface g0/0
 ip address 15.255.255.254 255.0.0.0
 no shutdown
 description LAN to SW1 / PC1
+```
 
 ---
 
