@@ -120,12 +120,62 @@ This means:
 
 # Trunking 
 ## What a trunk port is
+A trunk port is a switch port that carries traffic for multiple VLANs over a single link. Trunk ports are normally used between network devices such as:
+- switch to switch
+- switch to router
+- switch to multilayer switch
 
 ## Why Trunks are needed 
+Trunks are needed when multiple VLANs must be carried between devices.
+
+For example, if SW1 and SW2 both have:
+- VLAN 10 for HR
+- VLAN 20 for Sales
+- VLAN 30 for Admin
+
+Then the link between the switches must carry traffic for all of those VLANs. Instead of using a separate cable for each VLAN, one trunk link can carry all VLAN traffic.
+
+This makes the network:
+- more efficient
+- easier to scale
+- easier to manage
+- less expensive because fewer physical links are required
 
 ## 802.1Q tagging 
+802.1Q is the standard used to identify which VLAN a frame belongs to when it travels across a trunk link.
 
-##
+When a frame is sent over a trunk:
+- the switch adds a VLAN tag to the Ethernet frame
+- the tag tells the receiving device which VLAN the traffic belongs to
+- the receiving switch reads the tag and forwards the frame in the correct VLAN
+
+This process is called **VLAN tagging**.
+
+### Key point
+Traffic on a trunk is usually tagged so that multiple VLANs can share the same link without mixing their traffic.
+
+## Native VLAN behavior
+The native VLAN is a special VLAN on an 802.1Q trunk.
+
+Frames in the native VLAN are sent **untagged** by default.
+
+### Important points
+- all other VLAN traffic is normally tagged
+- native VLAN traffic is untagged
+- both ends of the trunk should have the same native VLAN configured
+- a native VLAN mismatch can cause traffic problems and security issues
+
+By default on many Cisco switches, VLAN 1 is the native VLAN unless it is changed.
+
+## Trunk vs access port
+| Port Type   | Description |
+|------------|-------------|
+| Access Port | Carries traffic for one VLAN only. Usually connects to end devices such as PCs, printers, or phones. |
+| Trunk Port  | Carries traffic for multiple VLANs. Usually connects to other switches, routers, or multilayer switches. |
+
+### Simple example
+- A PC connected to F0/1 uses an **access port**
+- A link between SW1 and SW2 uses a **trunk port**
 
 
 ---
