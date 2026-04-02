@@ -1,5 +1,11 @@
 # Network Access
 ## How devices connect to the network
+Devices connect to a network using wirted connections like Ethernet cables or wireless connections such as WiFi, allowing them to communicate and share resources. This will allow data transmission between devices, facilitating activities such as internet browsing and file sharing.
+
+### Data Transmission
+when they are connected, devices can communicate and share resources.It supports vaious activities, including:
+- Internet Browsing
+- file Sharing
 
 ## Switching basic
 
