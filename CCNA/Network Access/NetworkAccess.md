@@ -1,19 +1,26 @@
-# Network Access
-## How devices connect to the network
-Devices connect to a network using wirted connections like Ethernet cables or wireless connections such as WiFi, allowing them to communicate and share resources. This will allow data transmission between devices, facilitating activities such as internet browsing and file sharing.
+# CCNA Network Access Notes
 
-### Data Transmission
-when they are connected, devices can communicate and share resources.It supports vaious activities, including:
-- Internet Browsing
-- file Sharing
+These notes cover the main **Network Access** topics from the CCNA. This section focuses on how devices connect to a network, how switches forward traffic inside a LAN, and how networks are designed to be efficient, secure, and reliable.
 
-## Switching basic
+The topics in this section build the foundation for understanding how local networks operate. They include switching, VLANs, trunking, inter-VLAN routing, loop prevention, link aggregation, wireless basics, and basic switch security.
 
-## Trunks
+These notes are useful for:
+- understanding core CCNA concepts
+- revising key terms and definitions
+- preparing for Packet Tracer labs
+- reviewing commands and common exam points
 
-## Wireless Basic 
-
-## Redundancy in switched network
+The main topics covered are:
+- network access basics
+- VLANs
+- trunking
+- inter-VLAN routing
+- switching basics
+- STP
+- EtherChannel
+- wireless basics
+- port security
+- key commands
 
 ---
 
