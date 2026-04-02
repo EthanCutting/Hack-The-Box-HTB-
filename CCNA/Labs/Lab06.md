@@ -59,3 +59,7 @@ so it is received by:
 - PC1
 
 ---
+
+# Commands Used
+- Show mac address-table
+- show mac address-table dynamic
